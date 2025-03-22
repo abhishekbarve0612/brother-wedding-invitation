@@ -1,0 +1,404 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f9f5f1;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Language Toggle */
+.lang-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.lang-btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background: #6b4e31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.lang-btn.active {
+    background: #f7c948;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                url('https://images.unsplash.com/photo-1611080626919-7cf5a3dbab5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Falling Petals */
+.petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.petal {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: #f7c948;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: fall 5s linear infinite;
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 30%; animation-delay: 1s; }
+.petal:nth-child(3) { left: 50%; animation-delay: 2s; }
+.petal:nth-child(4) { left: 70%; animation-delay: 3s; }
+.petal:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.hero-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 90%;
+    width: 500px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.hero .shloka {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 1.1rem;
+    color: #6b4e31;
+    margin-bottom: 15px;
+}
+
+.hero .intro {
+    font-size: 0.9rem;
+    color: #6b4e31;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    color: #f7c948;
+}
+
+.hero .subtitle {
+    font-size: 1rem;
+    color: #6b4e31;
+    margin-bottom: 15px;
+}
+
+.hero .date {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.hero .venue {
+    font-size: 1rem;
+    color: #6b4e31;
+    margin-bottom: 20px;
+}
+
+.scroll-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #f7c948;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: #6b4e31;
+    color: #fff;
+}
+
+/* General Section Styles */
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #6b4e31;
+}
+
+/* Schedule Section */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-item {
+    margin: 20px 0;
+}
+
+.schedule-item h3 {
+    font-size: 1.5rem;
+    color: #f7c948;
+}
+
+.schedule-item p {
+    font-size: 1rem;
+}
+
+/* RSVP Section */
+.rsvp-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #6b4e31;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.rsvp-btn:hover {
+    background: #f7c948;
+    color: #333;
+}
+
+.rsvp-form {
+    margin-top: 20px;
+}
+
+.rsvp-form input, .rsvp-form textarea {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.rsvp-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #f7c948;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Add to Calendar Section */
+.calendar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addeventatc_button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #6b4e31;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.addeventatc_button:hover {
+    background: #f7c948;
+    color: #333;
+}
+
+/* Thank You Section */
+.thank-you p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Doodle Girl and Chat Bubble */
+.doodle-girl {
+    position: fixed;
+    bottom: 20px;
+    left: -300px; /* Start completely off-screen */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    opacity: 0;
+    transition: left 0.5s ease, opacity 0.5s ease;
+    z-index: 10;
+}
+
+.doodle-girl.visible {
+    left: -120px; /* Slide in just enough for peeking */
+    opacity: 1;
+    bottom: 40%;
+}
+
+.doodle-img {
+    width: 100px;
+    height: 150px;
+    transform: rotate(0deg); /* Initial state */
+    transform-origin: bottom left;
+    transition: transform 0.5s ease;
+    order: 1;
+}
+
+.doodle-girl.visible .doodle-img {
+    transform: rotate(60deg) translateY(-32px) translateX(2px); /* Rotate to 60 degrees for peeking */
+}
+
+.chat-bubble {
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-size: 0.9rem;
+    color: #333;
+    max-width: 200px;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s; /* Delay fade-in slightly */
+    order: 2;
+    top: -30px; /* Position near the mouth (adjust based on image) */
+    left: 52px;
+}
+
+.doodle-girl.visible .chat-bubble {
+    opacity: 1;
+}
+
+.chat-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-right-color: #fff;
+}
+
+/* Fade-In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .hero .shloka {
+        font-size: 1.3rem;
+    }
+    .hero .intro {
+        font-size: 1rem;
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+    .hero .date {
+        font-size: 1.5rem;
+    }
+    .hero .venue {
+        font-size: 1.2rem;
+    }
+    .hero-card {
+        padding: 40px;
+        max-width: 600px;
+    }
+    .section {
+        padding: 60px 40px;
+    }
+    .section h2 {
+        font-size: 2.5rem;
+    }
+    .schedule-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .schedule-item {
+        width: 30%;
+    }
+    .calendar-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .doodle-girl {
+        left: -250px;
+        bottom: 60%;
+    }
+    .doodle-girl.visible {
+        left: -100px; /* Adjust for smaller screens */
+    }
+    .chat-bubble {
+        font-size: 0.8rem;
+        max-width: 150px;
+        top: -20px; /* Adjust for smaller image */
+        left: 52px;
+    }
+    .doodle-img {
+        width: 80px;
+        height: 120px;
+    }
+}
