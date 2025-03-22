@@ -306,13 +306,13 @@ body {
     width: 100px;
     height: 150px;
     transform: rotate(0deg); /* Initial state */
-    transform-origin: bottom left;
-    transition: transform 0.5s ease;
+    transform-origin: bottom left; /* Pivot point for rotation */
     order: 1;
 }
 
 .doodle-girl.visible .doodle-img {
-    transform: rotate(60deg) translateY(-32px) translateX(2px); /* Rotate to 60 degrees for peeking */
+    animation: pendulumSwing 3s ease-in-out forwards; /* Apply pendulum animation */
+    transform: rotate(60deg) translateY(-32px) translateX(2px); /* Final position */
 }
 
 .chat-bubble {
@@ -379,6 +379,25 @@ body {
 
 .doodle-girl.visible .chat-bubble {
     opacity: 1;
+}
+
+/* Pendulum Animation for Doodle Girl */
+@keyframes pendulumSwing {
+    0% {
+        transform: rotate(50deg) translateY(-32px) translateX(2px); /* Start at 40 degrees */
+    }
+    25% {
+        transform: rotate(70deg) translateY(-32px) translateX(2px); /* Swing to 80 degrees */
+    }
+    50% {
+        transform: rotate(50deg) translateY(-32px) translateX(2px); /* Swing back to 40 degrees */
+    }
+    75% {
+        transform: rotate(70deg) translateY(-32px) translateX(2px); /* Swing to 80 degrees again */
+    }
+    100% {
+        transform: rotate(60deg) translateY(-32px) translateX(2px); /* Settle at 60 degrees */
+    }
 }
 
 /* Fade-In Animation */
