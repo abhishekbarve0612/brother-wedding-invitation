@@ -70,8 +70,9 @@ rsvpBtn.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
+    const guests = document.getElementById('guests').value;
     const message = document.getElementById('message').value;
-    alert(`Thank you, ${name}! Your response: "${message}" has been noted.`);
+    alert(`Thank you, ${name}! Number of Guests: ${guests}. Your response: "${message}" has been noted.`);
     form.reset();
     rsvpForm.style.display = 'none';
 });

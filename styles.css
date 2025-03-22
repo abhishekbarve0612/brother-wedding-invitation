@@ -225,6 +225,16 @@ body {
     border-radius: 5px;
 }
 
+.rsvp-form input[type="number"] {
+    -moz-appearance: textfield; /* Remove arrows in Firefox */
+}
+
+.rsvp-form input[type="number"]::-webkit-outer-spin-button,
+.rsvp-form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove arrows in Chrome/Safari */
+    margin: 0;
+}
+
 .rsvp-form button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -274,6 +284,15 @@ body {
 .addeventatc_button:hover {
     background: #f7c948;
     color: #333;
+}
+
+/* Location Section */
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Thank You Section */
@@ -499,15 +518,15 @@ body {
 @media (max-width: 767px) {
     .doodle-girl {
         left: -250px;
-        bottom: 60%;
+        bottom: 20%;
     }
     .doodle-girl.visible {
         left: -100px; /* Adjust for smaller screens */
-        bottom: 60%; /* Keep it at mid-screen */
+        bottom: 20%;
     }
     .doodle-girl.hidden {
         left: -250px; /* Slide back off-screen */
-        bottom: 60%; /* Keep it at mid-screen to avoid jump */
+        bottom: 20%; /* Keep it at 20% for mobile to avoid jump */
     }
     .chat-bubble {
         font-size: 0.8rem;
