@@ -20,18 +20,35 @@ sections.forEach(section => observer.observe(section));
 // Language Toggle
 const langEnBtn = document.getElementById('lang-en');
 const langHiBtn = document.getElementById('lang-hi');
+const langMrBtn = document.getElementById('lang-mr');
 const elements = document.querySelectorAll('[data-en]');
 
 function setLanguage(lang) {
     elements.forEach(el => {
-        el.textContent = el.getAttribute(`data-${lang}`);
+        // Check if the element is the chat bubble (which has nested elements)
+        if (el.classList.contains('chat-bubble')) {
+            // Update the nested quote-text and speaker-name elements separately
+            const quoteText = el.querySelector('.quote-text');
+            const speakerName = el.querySelector('.speaker-name');
+            if (quoteText) {
+                quoteText.textContent = quoteText.getAttribute(`data-${lang}`);
+            }
+            if (speakerName) {
+                speakerName.textContent = speakerName.getAttribute(`data-${lang}`);
+            }
+        } else {
+            // For all other elements, update the text content directly
+            el.textContent = el.getAttribute(`data-${lang}`);
+        }
     });
     langEnBtn.classList.toggle('active', lang === 'en');
     langHiBtn.classList.toggle('active', lang === 'hi');
+    langMrBtn.classList.toggle('active', lang === 'mr');
 }
 
 langEnBtn.addEventListener('click', () => setLanguage('en'));
 langHiBtn.addEventListener('click', () => setLanguage('hi'));
+langMrBtn.addEventListener('click', () => setLanguage('mr'));
 
 // RSVP Functionality
 const rsvpBtn = document.querySelector('.rsvp-btn');

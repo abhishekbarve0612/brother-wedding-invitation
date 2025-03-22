@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit & Priya's Wedding</title>
+    <title>Vishal & Bride's Wedding</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Devanagari&family=Open+Sans&display=swap" rel="stylesheet">
     <!-- AddEvent Script -->
@@ -16,6 +16,7 @@
         <div class="lang-toggle">
             <button id="lang-en" class="lang-btn active">English</button>
             <button id="lang-hi" class="lang-btn">हिन्दी</button>
+            <button id="lang-mr" class="lang-btn">मराठी</button>
         </div>
 
         <!-- Hero Section -->
@@ -30,107 +31,177 @@
             </div>
             <div class="hero-card">
                 <h2 class="shloka" data-en="May Lord Indra unite this couple like chakravaka birds, blessing them with joy and long life." 
-                    data-hi="इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥">
+                    data-hi="इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥"
+                    data-mr="इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विश्वमायुर्व्यश्नुताम् ॥">
                     इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥
                 </h2>
-                <p class="intro" data-en="Together with their families" data-hi="अपने परिवारों के साथ">Together with their families</p>
-                <h1 data-en="Amit & Priya" data-hi="अमित और प्रिया">Amit <span>&</span> Priya</h1>
+                <p class="intro" data-en="Together with their families" 
+                   data-hi="अपने परिवारों के साथ" 
+                   data-mr="त्यांच्या कुटुंबांसह">Together with their families</p>
+                <h1 data-en="Vishal & Bride" 
+                    data-hi="अमित और दुल्हन" 
+                    data-mr="अमित आणि दुल्हन">Vishal <span>&</span> Bride</h1>
                 <p class="subtitle" data-en="joyfully invite you to their wedding celebration" 
-                   data-hi="आपको अपने विवाह समारोह में खुशी से आमंत्रित करते हैं">
+                   data-hi="आपको अपने विवाह समारोह में खुशी से आमंत्रित करते हैं" 
+                   data-mr="आपल्याला त्यांच्या विवाह समारंभासाठी आनंदाने आमंत्रित करतात">
                     joyfully invite you to their wedding celebration
                 </p>
-                <p class="date" data-en="April 15, 2025" data-hi="15 अप्रैल 2025">April 15, 2025</p>
-                <p class="venue" data-en="The Grand Venue, Mumbai" data-hi="द ग्रैंड वेन्यू, मुंबई">The Grand Venue, Mumbai</p>
-                <button class="scroll-btn" onclick="scrollToSection('schedule')" data-en="See Details" data-hi="विवरण देखें">See Details</button>
+                <p class="date" data-en="April 15, 2025" 
+                   data-hi="15 अप्रैल 2025" 
+                   data-mr="15 एप्रिल 2025">April 15, 2025</p>
+                <p class="venue" data-en="The Grand Venue, Nagpur" 
+                   data-hi="द ग्रैंड वेन्यू, नागपुर" 
+                   data-mr="द ग्रँड व्हेन्यू, नागपुर">The Grand Venue, Nagpur</p>
+                <button class="scroll-btn" onclick="scrollToSection('schedule')" 
+                        data-en="See Details" 
+                        data-hi="विवरण देखें" 
+                        data-mr="तपशील पहा">See Details</button>
             </div>
         </section>
 
         <!-- Schedule Section -->
         <section id="schedule" class="section fade-in">
-            <h2 data-en="Schedule" data-hi="कार्यक्रम">Schedule</h2>
+            <h2 data-en="Schedule" 
+                data-hi="कार्यक्रम" 
+                data-mr="वेळापत्रक">Schedule</h2>
             <div class="schedule-container">
                 <div class="schedule-item">
-                    <h3 data-en="Haldi Ceremony" data-hi="हल्दी समारोह">Haldi Ceremony</h3>
-                    <p data-en="April 13, 2025 | 4:00 PM" data-hi="13 अप्रैल 2025 | शाम 4:00 बजे">April 13, 2025 | 4:00 PM</p>
-                    <p data-en="The Grand Venue, Mumbai" data-hi="द ग्रैंड वेन्यू, मुंबई">The Grand Venue, Mumbai</p>
+                    <h3 data-en="Haldi Ceremony" 
+                        data-hi="हल्दी समारोह" 
+                        data-mr="हळदी समारंभ">Haldi Ceremony</h3>
+                    <p data-en="April 10, 2025 | 4:00 PM" 
+                       data-hi="10 अप्रैल 2025 | शाम 4:00 बजे" 
+                       data-mr="10 एप्रिल 2025 | संध्याकाळी 4:00 वाजता">April 10, 2025 | 4:00 PM</p>
+                    <p data-en="The Grand Venue, Nagpur" 
+                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
+                       data-mr="द ग्रँड व्हेन्यू, नागपुर">The Grand Venue, Nagpur</p>
                 </div>
                 <div class="schedule-item">
-                    <h3 data-en="Wedding Ceremony" data-hi="विवाह समारोह">Wedding Ceremony</h3>
-                    <p data-en="April 15, 2025 | 6:00 PM" data-hi="15 अप्रैल 2025 | शाम 6:00 बजे">April 15, 2025 | 6:00 PM</p>
-                    <p data-en="The Grand Venue, Mumbai" data-hi="द ग्रैंड वेन्यू, मुंबई">The Grand Venue, Mumbai</p>
+                    <h3 data-en="Wedding Ceremony" 
+                        data-hi="विवाह समारोह" 
+                        data-mr="विवाह समारंभ">Wedding Ceremony</h3>
+                    <p data-en="April 15, 2025 | 6:00 PM" 
+                       data-hi="15 अप्रैल 2025 | शाम 6:00 बजे" 
+                       data-mr="15 एप्रिल 2025 | संध्याकाळी 6:00 वाजता">April 11, 2025 | 6:00 PM</p>
+                    <p data-en="The Grand Venue, Nagpur" 
+                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
+                       data-mr="द ग्रँड व्हेन्यू, नागपुर">The Grand Venue, Nagpur</p>
                 </div>
                 <div class="schedule-item">
-                    <h3 data-en="Reception" data-hi="स्वागत समारोह">Reception</h3>
-                    <p data-en="April 16, 2025 | 7:00 PM" data-hi="16 अप्रैल 2025 | शाम 7:00 बजे">April 16, 2025 | 7:00 PM</p>
-                    <p data-en="The Grand Venue, Mumbai" data-hi="द ग्रैंड वेन्यू, मुंबई">The Grand Venue, Mumbai</p>
+                    <h3 data-en="Reception" 
+                        data-hi="स्वागत समारोह" 
+                        data-mr="स्वागत समारंभ">Reception</h3>
+                    <p data-en="April 16, 2025 | 7:00 PM" 
+                       data-hi="16 अप्रैल 2025 | शाम 7:00 बजे" 
+                       data-mr="16 एप्रिल 2025 | संध्याकाळी 7:00 वाजता">April 12, 2025 | 7:00 PM</p>
+                    <p data-en="The Grand Venue, Nagpur" 
+                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
+                       data-mr="द ग्रँड व्हेन्यू, नागपुर">The Grand Venue, Nagpur</p>
                 </div>
             </div>
         </section>
 
         <!-- RSVP Section -->
         <section class="section fade-in">
-            <h2 data-en="RSVP (Optional)" data-hi="आरएसवीपी (वैकल्पिक)">RSVP (Optional)</h2>
-            <button class="rsvp-btn" data-en="Let Us Know" data-hi="हमें बताएं">Let Us Know</button>
+            <h2 data-en="RSVP (Optional)" 
+                data-hi="आरएसवीपी (वैकल्पिक)" 
+                data-mr="आरएसव्हीपी (पर्यायी)">RSVP (Optional)</h2>
+            <button class="rsvp-btn" 
+                    data-en="Let Us Know" 
+                    data-hi="हमें बताएं" 
+                    data-mr="आम्हाला कळवा">Let Us Know</button>
             <div class="rsvp-form" style="display: none;">
                 <form id="rsvpForm">
                     <input type="text" id="name" placeholder="Your Name" required>
                     <textarea id="message" placeholder="Your Message (e.g., 'I will come')" required></textarea>
-                    <button type="submit" data-en="Submit" data-hi="जमा करें">Submit</button>
+                    <button type="submit" 
+                            data-en="Submit" 
+                            data-hi="जमा करें" 
+                            data-mr="सबमिट करा">Submit</button>
                 </form>
             </div>
-            <p><a href="https://wa.me/919876543210?text=Hi,%20I%20will%20attend%20Amit%20&%20Priya's%20wedding!" 
-                  data-en="Or RSVP via WhatsApp" data-hi="या व्हाट्सएप के माध्यम से आरएसवीपी करें">Or RSVP via WhatsApp</a></p>
+            <p><a href="https://wa.me/919876543210?text=Hi,%20I%20will%20attend%20Vishal%20&%20Bride's%20wedding!" 
+                  class="whatsapp-link" 
+                  data-en="Or RSVP via WhatsApp" 
+                  data-hi="या व्हाट्सएप के माध्यम से आरएसवीपी करें" 
+                  data-mr="किंवा व्हॉट्सअॅपद्वारे आरएसव्हीपी करा">Or RSVP via WhatsApp</a></p>
         </section>
 
         <!-- Add to Calendar Section -->
         <section class="section fade-in">
-            <h2 data-en="Add to Calendar" data-hi="कैलेंडर में जोड़ें">Add to Calendar</h2>
+            <h2 data-en="Add to Calendar" 
+                data-hi="कैलेंडर में जोड़ें" 
+                data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</h2>
             <div class="calendar-buttons">
                 <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" data-en="Haldi" data-hi="हल्दी">Haldi</div>
-                    <span class="start">04/13/2025 04:00 PM</span>
-                    <span class="end">04/13/2025 06:00 PM</span>
+                    <div class="addeventatc_button" 
+                         data-en="Haldi" 
+                         data-hi="हल्दी" 
+                         data-mr="हळदी">Haldi</div>
+                    <span class="start">04/10/2025 04:00 PM</span>
+                    <span class="end">04/10/2025 06:00 PM</span>
                     <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Amit & Priya's Haldi</span>
-                    <span class="location">The Grand Venue, Mumbai</span>
+                    <span class="title">Vishal & Bride's Haldi</span>
+                    <span class="location">The Grand Venue, Nagpur</span>
                 </div>
                 <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" data-en="Wedding" data-hi="विवाह">Wedding</div>
-                    <span class="start">04/15/2025 06:00 PM</span>
-                    <span class="end">04/15/2025 10:00 PM</span>
+                    <div class="addeventatc_button" 
+                         data-en="Wedding" 
+                         data-hi="विवाह" 
+                         data-mr="विवाह">Wedding</div>
+                    <span class="start">04/11/2025 06:00 PM</span>
+                    <span class="end">04/11/2025 10:00 PM</span>
                     <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Amit & Priya's Wedding</span>
-                    <span class="location">The Grand Venue, Mumbai</span>
+                    <span class="title">Vishal & Bride's Wedding</span>
+                    <span class="location">The Grand Venue, Nagpur</span>
                 </div>
                 <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" data-en="Reception" data-hi="स्वागत">Reception</div>
-                    <span class="start">04/16/2025 07:00 PM</span>
-                    <span class="end">04/16/2025 11:00 PM</span>
+                    <div class="addeventatc_button" 
+                         data-en="Reception" 
+                         data-hi="स्वागत" 
+                         data-mr="स्वागत">Reception</div>
+                    <span class="start">04/12/2025 07:00 PM</span>
+                    <span class="end">04/12/2025 11:00 PM</span>
                     <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Amit & Priya's Reception</span>
-                    <span class="location">The Grand Venue, Mumbai</span>
+                    <span class="title">Vishal & Bride's Reception</span>
+                    <span class="location">The Grand Venue, Nagpur</span>
                 </div>
             </div>
         </section>
 
         <!-- Thank You Section -->
         <section class="section fade-in thank-you">
-            <h2 data-en="Thank You" data-hi="धन्यवाद">Thank You</h2>
+            <h2 data-en="Thank You" 
+                data-hi="धन्यवाद" 
+                data-mr="धन्यवाद">Thank You</h2>
             <p data-en="We would be honored by your presence to bless us on our special day. Please take the time to join us!" 
-               data-hi="हमारी विशेष दिन पर हमें आशीर्वाद देने के लिए आपकी उपस्थिति से हम सम्मानित होंगे। कृपया हमारे साथ शामिल होने के लिए समय निकालें!">
+               data-hi="हमारी विशेष दिन पर हमें आशीर्वाद देने के लिए आपकी उपस्थिति से हम सम्मानित होंगे। कृपया हमारे साथ शामिल होने के लिए समय निकालें!" 
+               data-mr="आमच्या खास दिवशी आम्हाला आशीर्वाद देण्यासाठी तुमच्या उपस्थितीने आम्हाला सन्मान वाटेल. कृपया आमच्यासोबत सामील होण्यासाठी वेळ काढा!">
                 We would be honored by your presence to bless us on our special day. Please take the time to join us!
             </p>
         </section>
 
         <!-- Doodle Girl with Chat Bubble -->
-        <div class="doodle-girl">
-            <div class="chat-bubble" data-en="Please come to my brother's wedding!" 
-                 data-hi="कृपया मेरे भाई की शादी में आएं!">
-                Please come to my Mama's wedding!
-            </div>
-            <img src="27914.jpg" alt="Doodle Girl" class="doodle-img">
+    <div class="doodle-girl">
+        <div class="chat-bubble" 
+                data-en="Come to my Mama's wedding, pretty please, okay?" 
+                data-hi="मेरे मामाजी की शादी में ज़रूर आना, प्लीज प्लीज, ठीक है?" 
+                data-mr="माझ्या मामाजीच्या लग्नाला नक्की यायचं बाला का!">
+            <span class="quote-text" 
+                    data-en="Come to my Mama's wedding, pretty please, okay?" 
+                    data-hi="मेरे मामाजी की शादी में ज़रूर आना, प्लीज प्लीज, ठीक है?" 
+                    data-mr="माझ्या मामाजीच्या लग्नाला नक्की यायचं बरं का!">
+                Come to my Mama's wedding, pretty please, okay?
+            </span>
+            <span class="speaker-name" 
+                    data-en="- Kiyaara" 
+                    data-hi="- कियारा" 
+                    data-mr="- कियारा">- Kiyaara</span>
+        </div>
+        <img src="27914.jpg" alt="Doodle Girl" class="doodle-img">
         </div>
     </div>
     <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'924554b8cfb753aa',t:'MTc0MjY0Mjc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

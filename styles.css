@@ -234,6 +234,25 @@ body {
     cursor: pointer;
 }
 
+/* Style the RSVP via WhatsApp Link */
+.whatsapp-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    color: #fff;
+    background: #25D366; /* WhatsApp green */
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-link:hover {
+    background: #20b358; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+
 /* Add to Calendar Section */
 .calendar-buttons {
     display: flex;
@@ -299,7 +318,7 @@ body {
 .chat-bubble {
     background: #fff;
     border-radius: 15px;
-    padding: 10px 15px;
+    padding: 15px;
     margin-left: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -310,21 +329,56 @@ body {
     transition: opacity 0.5s ease 0.2s; /* Delay fade-in slightly */
     order: 2;
     top: -30px; /* Position near the mouth (adjust based on image) */
-    left: 52px;
+    left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80px; /* Ensure enough space for quote and name */
 }
 
-.doodle-girl.visible .chat-bubble {
-    opacity: 1;
+.chat-bubble::before {
+    content: '“';
+    font-size: 1.5rem;
+    color: #6b4e31;
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }
 
 .chat-bubble::after {
     content: '';
     position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: -8px;
+    left: -2px;
     border: 10px solid transparent;
-    border-right-color: #fff;
+    border-top-color: #fff; /* Nip points downward toward the doodle */
+    transform: rotate(-45deg); /* Rotate to point toward the doodle */
+}
+
+.chat-bubble .quote-text {
+    flex-grow: 1;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+    position: relative;
+}
+
+.chat-bubble .quote-text::after {
+    content: '”';
+    font-size: 1.5rem;
+    color: #6b4e31;
+    position: relative;
+    margin-left: 2px;
+}
+
+.chat-bubble .speaker-name {
+    font-size: 0.7rem;
+    color: #6b4e31;
+    text-align: right;
+    font-style: italic;
+}
+
+.doodle-girl.visible .chat-bubble {
+    opacity: 1;
 }
 
 /* Fade-In Animation */
@@ -394,8 +448,12 @@ body {
     .chat-bubble {
         font-size: 0.8rem;
         max-width: 150px;
-        top: -20px; /* Adjust for smaller image */
+        top: -50px; /* Adjust for smaller image */
         left: 52px;
+        min-height: 70px; /* Adjust for smaller screens */
+    }
+    .chat-bubble .speaker-name {
+        font-size: 0.6rem;
     }
     .doodle-img {
         width: 80px;
