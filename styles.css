@@ -286,7 +286,7 @@ body {
 /* Doodle Girl and Chat Bubble */
 .doodle-girl {
     position: fixed;
-    bottom: 20px;
+    bottom: 40%; /* Set default to mid-screen to avoid jump */
     left: -300px; /* Start completely off-screen */
     display: flex;
     flex-direction: row;
@@ -299,7 +299,13 @@ body {
 .doodle-girl.visible {
     left: -120px; /* Slide in just enough for peeking */
     opacity: 1;
-    bottom: 40%;
+    bottom: 40%; /* Keep it at mid-screen */
+}
+
+.doodle-girl.hidden {
+    left: -300px; /* Slide back off-screen */
+    opacity: 0;
+    bottom: 40%; /* Keep it at mid-screen to avoid jump */
 }
 
 .doodle-img {
@@ -375,6 +381,40 @@ body {
     color: #6b4e31;
     text-align: right;
     font-style: italic;
+}
+
+.chat-bubble .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chat-bubble .action-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-bubble .action-btn.sure {
+    background: #007bff; /* Blue background for "Sure!" */
+    color: #fff;
+}
+
+.chat-bubble .action-btn.no-thanks {
+    background: #f0f0f0; /* Light gray background for "No thanks" */
+    color: #333;
+}
+
+.chat-bubble .action-btn.sure:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+.chat-bubble .action-btn.no-thanks:hover {
+    background: #d0d0d0; /* Darker gray on hover */
 }
 
 .doodle-girl.visible .chat-bubble {
@@ -463,6 +503,11 @@ body {
     }
     .doodle-girl.visible {
         left: -100px; /* Adjust for smaller screens */
+        bottom: 60%; /* Keep it at mid-screen */
+    }
+    .doodle-girl.hidden {
+        left: -250px; /* Slide back off-screen */
+        bottom: 60%; /* Keep it at mid-screen to avoid jump */
     }
     .chat-bubble {
         font-size: 0.8rem;
@@ -473,6 +518,10 @@ body {
     }
     .chat-bubble .speaker-name {
         font-size: 0.6rem;
+    }
+    .chat-bubble .action-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
     }
     .doodle-img {
         width: 80px;
