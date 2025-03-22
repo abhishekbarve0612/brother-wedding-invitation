@@ -104,7 +104,7 @@ window.addEventListener('scroll', () => {
     }
 
     // Show doodle girl when scrolling to 80% of the page, but only if not dismissed by button
-    if (scrollPercentage >= 80 && !hasAppeared && !dismissedByButton) {
+    if (scrollPercentage >= 60 && !hasAppeared && !dismissedByButton) {
         doodleGirl.classList.remove('hidden');
         doodleGirl.classList.add('visible');
         hasAppeared = true;

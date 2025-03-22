@@ -182,15 +182,57 @@ body {
 
 .schedule-item {
     margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.schedule-item:hover {
+    transform: translateY(-5px);
 }
 
 .schedule-item h3 {
-    font-size: 1.5rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
     color: #f7c948;
+    margin-bottom: 15px;
 }
 
-.schedule-item p {
+.schedule-item .event-date {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6b4e31;
+    margin-bottom: 5px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.schedule-item .event-date::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: #f7c948;
+}
+
+.schedule-item .event-time {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.schedule-item .event-location {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #6b4e31;
 }
 
 /* RSVP Section */
@@ -267,7 +309,19 @@ body {
 .calendar-buttons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+
+.addeventatc {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.addeventatc:hover {
+    transform: translateY(-5px);
 }
 
 .addeventatc_button {
@@ -279,11 +333,62 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s ease;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .addeventatc_button:hover {
     background: #f7c948;
     color: #333;
+}
+
+.addeventatc .event-date {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b4e31;
+    margin: 5px 0;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.addeventatc .event-date::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: #f7c948;
+}
+
+.addeventatc .event-time {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.addeventatc .timezone,
+.addeventatc .title {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #6b4e31;
+    margin: 5px 0;
+}
+
+.addeventatc .location {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #6b4e31;
+    margin: 5px 0;
 }
 
 /* Location Section */
