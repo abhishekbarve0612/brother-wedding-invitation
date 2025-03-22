@@ -125,8 +125,9 @@ body {
     margin-bottom: 10px;
 }
 
-.hero h1 span {
-    color: #f7c948;
+.hero h1 .ampersand {
+    color: #f7c948; /* Golden yellow for the & (and equivalents) */
+    margin: 0 5px; /* Add some spacing around the & on larger screens */
 }
 
 .hero .subtitle {
@@ -619,8 +620,20 @@ body {
     }
 }
 
+@media (max-width: 1000px) {
+    .hero h1 .ampersand {
+        display: block; /* Make the & (and equivalents) appear on a new line */
+        margin: 5px 0; /* Add vertical spacing around the & */
+        font-size: 2rem; /* Slightly smaller font size for the & */
+    }
+}
+
 /* Mobile Adjustments */
 @media (max-width: 767px) {
+    .hero h1 {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+        line-height: 1.2; /* Adjust line height for better spacing */
+    }
     .doodle-girl {
         left: -250px;
         bottom: 20%;

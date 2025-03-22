@@ -25,8 +25,19 @@ const elements = document.querySelectorAll('[data-en]');
 
 function setLanguage(lang) {
     elements.forEach(el => {
+        // Special handling for the h1 element to wrap the conjunction in a span
+        if (el.tagName === 'H1') {
+            let text = el.getAttribute(`data-${lang}`);
+            if (lang === 'en') {
+                el.innerHTML = text.replace(' & ', ' <span class="ampersand">&</span> ');
+            } else if (lang === 'hi') {
+                el.innerHTML = text.replace(' और ', ' <span class="ampersand">और</span> ');
+            } else if (lang === 'mr') {
+                el.innerHTML = text.replace(' आणि ', ' <span class="ampersand">आणि</span> ');
+            }
+        }
         // Check if the element is the chat bubble (which has nested elements)
-        if (el.classList.contains('chat-bubble')) {
+        else if (el.classList.contains('chat-bubble')) {
             // Update the nested quote-text, speaker-name, and buttons separately
             const quoteText = el.querySelector('.quote-text');
             const speakerName = el.querySelector('.speaker-name');
