@@ -1,5 +1,66 @@
 // script.js
 
+// Generate Google Calendar Link
+function generateGoogleCalendarLink(event) {
+    const { title, start, end, location, timezone } = event;
+
+    // Convert dates to UTC for Google Calendar
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    // Format dates as YYYYMMDDTHHMMSSZ (UTC)
+    const formatDate = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+
+    const startFormatted = formatDate(startDate);
+    const endFormatted = formatDate(endDate);
+
+    // Encode event details
+    const encodedTitle = encodeURIComponent(title);
+    const encodedLocation = encodeURIComponent(location);
+    const encodedDetails = encodeURIComponent(`Join us for ${title}!`);
+    const encodedTimezone = encodeURIComponent(timezone);
+
+    // Construct the Google Calendar URL
+    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodedTitle}&dates=${startFormatted}/${endFormatted}&details=${encodedDetails}&location=${encodedLocation}&ctz=${encodedTimezone}`;
+
+    // Log the URL for debugging
+    console.log('Generated Google Calendar URL:', googleCalendarUrl);
+
+    return googleCalendarUrl;
+}
+
+// Generate Apple Calendar Link
+function generateAppleCalendarLink(event) {
+    const { title, start, end, location, timezone } = event;
+
+    // Format dates to iCalendar format (YYYYMMDDTHHMMSSZ)
+    const formatDate = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+    const startFormatted = formatDate(new Date(start));
+    const endFormatted = formatDate(new Date(end));
+
+    // Create the iCalendar content
+    const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'BEGIN:VEVENT',
+        `DTSTART:${startFormatted}`,
+        `DTEND:${endFormatted}`,
+        `SUMMARY:${title}`,
+        `LOCATION:${location}`,
+        `TZID:${timezone}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+
+    // Encode the .ics content in a webcal:// URL
+    const encodedICS = encodeURIComponent(icsContent);
+    return `webcal://data:text/calendar;charset=utf-8,${encodedICS}`;
+}
+
 // Smooth Scroll to Section
 function scrollToSection(sectionId) {
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
@@ -17,55 +78,29 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
-// Doodle Girl Animation (Trigger on Reception Section Visibility)
-const doodleGirl = document.querySelector('.doodle-girl');
-let hasAppeared = false;
-let dismissedByButton = false; // Flag to track if doodle was dismissed by button
+// Toggle Calendar Options
+const toggleButtons = document.querySelectorAll('.calendar-toggle-btn');
+const calendarOptions = document.querySelectorAll('.calendar-options');
 
-function hideDoodleGirl(source) {
-    doodleGirl.classList.remove('visible');
-    doodleGirl.classList.add('hidden');
-    if (source === 'button') {
-        dismissedByButton = true;
-    }
-}
-
-function showDoodleGirl() {
-    if (!hasAppeared && !dismissedByButton) {
-        doodleGirl.classList.remove('hidden');
-        doodleGirl.classList.add('visible');
-        hasAppeared = true;
-    }
-}
-
-// Trigger doodle girl when Reception section is 30% in view
-const receptionSection = document.getElementById('reception-inviters');
-const doodleObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            showDoodleGirl();
-        }
+toggleButtons.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const options = calendarOptions[index];
+        const isVisible = options.style.display === 'flex';
+        calendarOptions.forEach(opt => {
+            opt.style.display = 'none';
+        });
+        options.style.display = isVisible ? 'none' : 'flex';
     });
-}, { threshold: 0.3 });
-
-if (receptionSection) {
-    doodleObserver.observe(receptionSection);
-}
-
-// Hide doodle girl when scrolling back to the top (Hero section)
-window.addEventListener('scroll', () => {
-    if (window.scrollY < 50) {
-        dismissedByButton = false; // Allow reappearance after reaching top
-        hasAppeared = false; // Reset appearance flag
-        hideDoodleGirl('scroll'); // Hide when scrolling to top
-    }
 });
 
-// Add event listener to the "Sure" button
-const sureBtn = document.querySelector('.action-btn.sure');
-if (sureBtn) {
-    sureBtn.addEventListener('click', () => hideDoodleGirl('button'));
-}
+document.addEventListener('click', (e) => {
+    calendarOptions.forEach(opt => {
+        if (!opt.contains(e.target) && !e.target.classList.contains('calendar-toggle-btn')) {
+            opt.style.display = 'none';
+        }
+    });
+});
 
 // Language Toggle
 const langEnBtn = document.getElementById('lang-en');
@@ -76,23 +111,8 @@ const elements = document.querySelectorAll('[data-en]');
 function setLanguage(lang) {
     elements.forEach(el => {
         if (el.classList.contains('ampersand-hero')) {
-            // Handle the ampersand in the Hero section
             el.textContent = el.getAttribute(`data-${lang}`);
-        } else if (el.classList.contains('chat-bubble')) {
-            const quoteText = el.querySelector('.quote-text');
-            const speakerName = el.querySelector('.speaker-name');
-            const sureBtn = el.querySelector('.action-btn.sure');
-            if (quoteText) {
-                quoteText.textContent = quoteText.getAttribute(`data-${lang}`);
-            }
-            if (speakerName) {
-                speakerName.textContent = speakerName.getAttribute(`data-${lang}`);
-            }
-            if (sureBtn) {
-                sureBtn.textContent = sureBtn.getAttribute(`data-${lang}`);
-            }
-        } else if (el.classList.contains('location-btn')) {
-            // Update only the text inside the <span> to preserve the GPS icon
+        } else if (el.classList.contains('location-btn') || el.classList.contains('calendar-btn')) {
             const span = el.querySelector('span');
             if (span) {
                 span.textContent = el.getAttribute(`data-${lang}`);
@@ -119,15 +139,25 @@ canvas.height = window.innerHeight;
 const petals = [];
 const numPetals = 50;
 
+// Array of rose petal colors
+const petalColors = [
+    '#ff4d4d', // Red
+    '#ff9999', // Light Pink
+    '#ffe6e6', // Very Light Pink
+    '#ffcc99', // Peach
+    '#ffffff'  // White
+];
+
 class Petal {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height - canvas.height;
-        this.size = Math.random() * 10 + 5;
+        this.size = Math.random() * 15 + 10;
         this.speedY = Math.random() * 2 + 1;
         this.speedX = Math.random() * 2 - 1;
         this.angle = Math.random() * 360;
         this.spin = Math.random() * 2 - 1;
+        this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
     }
 
     update() {
@@ -140,6 +170,7 @@ class Petal {
             this.x = Math.random() * canvas.width;
             this.speedY = Math.random() * 2 + 1;
             this.speedX = Math.random() * 2 - 1;
+            this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
         }
     }
 
@@ -147,9 +178,19 @@ class Petal {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate((this.angle * Math.PI) / 180);
-        ctx.fillStyle = '#f7c948';
+        ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(
+            this.size * 0.3, -this.size * 0.5,
+            this.size * 0.7, -this.size * 0.5,
+            this.size, 0
+        );
+        ctx.bezierCurveTo(
+            this.size * 0.7, this.size * 0.5,
+            this.size * 0.3, this.size * 0.5,
+            0, 0
+        );
         ctx.fill();
         ctx.restore();
     }
@@ -170,7 +211,6 @@ function animatePetals() {
 
 animatePetals();
 
-// Resize Canvas on Window Resize
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

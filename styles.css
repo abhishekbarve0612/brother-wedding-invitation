@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: #f9f5f1;
+    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
     color: #333;
     line-height: 1.6;
     position: relative;
@@ -73,7 +73,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(to bottom, #f9f5f1, #f7e1b5);
+    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
     padding: 20px;
 }
 
@@ -161,7 +161,7 @@ body {
 /* Ceremonies Section */
 .ceremonies {
     padding: 40px 20px;
-    background: linear-gradient(to bottom, #f9f5f1, #f7e1b5);
+    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
 }
 
 .ceremonies-container {
@@ -262,7 +262,8 @@ body {
     margin-top: 10px;
 }
 
-.addeventatc_button {
+/* Calendar Toggle Button */
+.calendar-toggle-btn {
     padding: 8px 16px;
     font-size: 0.9rem;
     background: #f7c948;
@@ -273,9 +274,62 @@ body {
     transition: background 0.3s ease;
 }
 
-.addeventatc_button:hover {
+.calendar-toggle-btn:hover {
     background: #6b4e31;
     color: #fff;
+}
+
+/* Calendar Options Container */
+.calendar-options {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar Buttons */
+.calendar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.calendar-btn .calendar-logo {
+    width: 20px;
+    height: 20px;
+}
+
+/* Google Calendar Button */
+.calendar-btn.google-btn {
+    background: #ffffff;
+    color: #1a73e8;
+    border: 1px solid #dadce0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.calendar-btn.google-btn:hover {
+    background: #f1f3f4;
+}
+
+/* Apple Calendar Button */
+.calendar-btn.apple-btn {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #d2d2d2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.calendar-btn.apple-btn:hover {
+    background: #f5f5f5;
 }
 
 .location-btn {
@@ -300,154 +354,6 @@ body {
 .location-btn .gps-icon {
     width: 16px;
     height: 16px;
-}
-
-/* Doodle Girl (Inside Reception Section) */
-.doodle-girl {
-    position: fixed;
-    bottom: 40%; /* Set default to mid-screen to avoid jump */
-    left: -300px; /* Start completely off-screen on the left */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    opacity: 0;
-    transition: left 0.5s ease, opacity 0.5s ease;
-    z-index: 10;
-}
-
-.doodle-girl.visible {
-    left: -120px; /* Slide in just enough for peeking from the left */
-    opacity: 1;
-    bottom: 40%; /* Keep it at mid-screen */
-}
-
-.doodle-girl.hidden {
-    left: -300px; /* Slide back off-screen to the left */
-    opacity: 0;
-    bottom: 40%; /* Keep it at mid-screen to avoid jump */
-}
-
-.doodle-img {
-    width: 100px;
-    height: 150px;
-    transform: rotate(0deg); /* Initial state */
-    transform-origin: bottom left; /* Pivot point for rotation (left side) */
-    order: 1; /* Image comes after the chat bubble (right in row) */
-}
-
-.doodle-girl.visible .doodle-img {
-    animation: pendulumSwing 3s ease-in-out forwards; /* Apply pendulum animation */
-    transform: rotate(60deg) translateY(-32px) translateX(2px); /* Final position */
-}
-
-.chat-bubble {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px;
-    margin-left: 10px; /* Position to the right of the doodle girl */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
-    font-size: 0.9rem;
-    color: #333;
-    max-width: 200px;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.2s; /* Delay fade-in slightly */
-    order: 0; /* Chat bubble comes first (left in row) */
-    top: -30px; /* Position near the mouth (adjust based on image) */
-    left: 80px; /* Position to the right of the doodle girl */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 80px; /* Ensure enough space for quote and name */
-}
-
-.chat-bubble::before {
-    content: '“';
-    font-size: 1.5rem;
-    color: #6b4e31;
-    position: absolute;
-    top: 5px;
-    left: 20px;
-}
-
-.chat-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: -2px; /* Position on the left side of the bubble */
-    border: 10px solid transparent;
-    border-top-color: #fff; /* Nip points downward toward the doodle */
-    transform: rotate(-45deg); /* Rotate to point toward the doodle on the left */
-}
-
-.chat-bubble .quote-text {
-    flex-grow: 1;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-    position: relative;
-}
-
-.chat-bubble .quote-text::after {
-    content: '”';
-    font-size: 1.5rem;
-    color: #6b4e31;
-    position: relative;
-    margin-left: 2px;
-}
-
-.chat-bubble .speaker-name {
-    font-size: 0.7rem;
-    color: #6b4e31;
-    text-align: right;
-    font-style: italic;
-}
-
-.chat-bubble .button-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.chat-bubble .action-btn {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.chat-bubble .action-btn.sure {
-    background: #007bff; /* Blue background for "Sure!" */
-    color: #fff;
-}
-
-.chat-bubble .action-btn.sure:hover {
-    background: #0056b3; /* Darker blue on hover */
-}
-
-.doodle-girl.visible .chat-bubble {
-    opacity: 1;
-}
-
-/* Pendulum Animation for Doodle Girl */
-@keyframes pendulumSwing {
-    0% {
-        transform: rotate(50deg) translateY(-32px) translateX(2px); /* Start at 40 degrees */
-    }
-    25% {
-        transform: rotate(70deg) translateY(-32px) translateX(2px); /* Swing to 80 degrees */
-    }
-    50% {
-        transform: rotate(50deg) translateY(-32px) translateX(2px); /* Swing back to 40 degrees */
-    }
-    75% {
-        transform: rotate(70deg) translateY(-32px) translateX(2px); /* Swing to 80 degrees again */
-    }
-    100% {
-        transform: rotate(60deg) translateY(-32px) translateX(2px); /* Settle at 60 degrees */
-    }
 }
 
 /* Fade-In Animation */
@@ -523,14 +429,6 @@ body {
         margin: auto;
         margin-bottom: 20px;
     }
-    .doodle-img {
-        width: 60px;
-        height: 90px;
-    }
-    .chat-bubble {
-        max-width: 120px;
-        font-size: 0.7rem;
-    }
 }
 
 @media (max-width: 767px) {
@@ -541,34 +439,14 @@ body {
         width: calc(100svw - 40px);
         height: 900px;
     }
-    .doodle-girl {
-        left: -250px; /* Start off-screen on the left */
-        bottom: 20%; /* Adjust for mobile */
+    .calendar-options {
+        flex-direction: column;
+        gap: 8px;
     }
-    .doodle-girl.visible {
-        left: -100px; /* Slide in from the left */
-        bottom: 20%;
+    .calendar-btn {
+        width: 100%;
     }
-    .doodle-girl.hidden {
-        left: -250px; /* Slide back off-screen to the left */
-        bottom: 20%;
-    }
-    .chat-bubble {
-        font-size: 0.8rem;
-        max-width: 150px;
-        top: -50px; /* Adjust for smaller image */
-        left: 52px; /* Position to the right of the doodle girl */
-        min-height: 70px; /* Adjust for smaller screens */
-    }
-    .chat-bubble .speaker-name {
-        font-size: 0.6rem;
-    }
-    .chat-bubble .action-btn {
-        font-size: 0.7rem;
-        padding: 4px 8px;
-    }
-    .doodle-img {
-        width: 80px;
-        height: 120px;
-    }
+}
+.calendar-toggle-btn {
+    display: none;
 }

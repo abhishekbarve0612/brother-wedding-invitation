@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal & Bharati's Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Devanagari&family=Open+Sans&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,7 +22,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero fade-in">
             <div class="card">
-                <div class="image-container" style="background-image: url('image0.png');">
+                <div class="image-container" style="background-image: url('image0.webp');">
                     <div class="text-content">
                         <p class="initials" data-en="VB" 
                            data-hi="VB" 
@@ -60,7 +59,7 @@
             <div class="ceremonies-container">
                 <!-- Haldi Ceremony -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image3.png');">
+                    <div class="image-container" style="background-image: url('image3.webp');">
                         <div class="text-content">
                             <h3 data-en="Haldi Ceremony" 
                                 data-hi="हल्दी समारोह" 
@@ -75,16 +74,45 @@
                                data-hi="प्लॉट नंबर 97, कुम्भारे कॉलोनी, सम्राट नगर, कैंपटी" 
                                data-mr="प्लॉट क्र. 97, कुम्भारे कॉलनी, सम्राट नगर, कांपटी">Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee</p>
                             <div class="ceremony-buttons">
-                                <div class="addeventatc" data-styling="none">
-                                    <div class="addeventatc_button" 
-                                         data-en="Add to Calendar" 
-                                         data-hi="कैलेंडर में जोड़ें" 
-                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
-                                    <span class="start">04/10/2025 04:00 PM</span>
-                                    <span class="end">04/10/2025 06:00 PM</span>
-                                    <span class="timezone">Asia/Kolkata</span>
-                                    <span class="title">Vishal & Bharati's Haldi</span>
-                                    <span class="location">Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee</span>
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
                                 </div>
                                 <a href="https://maps.app.goo.gl/nWDCHBsZvt8u9abR7" 
                                    target="_blank" 
@@ -105,7 +133,7 @@
 
                 <!-- Wedding Ceremony -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image9.png');">
+                    <div class="image-container" style="background-image: url('image9.webp');">
                         <div class="text-content">
                             <h3 data-en="Wedding Ceremony" 
                                 data-hi="विवाह समारोह" 
@@ -120,18 +148,47 @@
                                data-hi="प्रकाश खरोले का घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर" 
                                data-mr="प्रकाश खरोले यांचे घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर">Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar</p>
                             <div class="ceremony-buttons">
-                                <div class="addeventatc" data-styling="none">
-                                    <div class="addeventatc_button" 
-                                         data-en="Add to Calendar" 
-                                         data-hi="कैलेंडर में जोड़ें" 
-                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
-                                    <span class="start">04/11/2025 07:00 PM</span>
-                                    <span class="end">04/11/2025 11:00 PM</span>
-                                    <span class="timezone">Asia/Kolkata</span>
-                                    <span class="title">Vishal & Bharati's Wedding</span>
-                                    <span class="location">Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar</span>
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
                                 </div>
-                                <a href="https://maps.app.goo.gl/dWArFPww9N3gStj49" 
+                                <a href="https://maps.google.com/?q=Dongri+Mines,+Dongri+Bujurg,+Teh.+Tumsar" 
                                    target="_blank" 
                                    class="location-btn" 
                                    data-en="Check on map" 
@@ -155,7 +212,7 @@
             <div class="ceremonies-container">
                 <!-- Reception -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image5.png');">
+                    <div class="image-container" style="background-image: url('image5.webp');">
                         <div class="text-content">
                             <h3 data-en="Reception" 
                                 data-hi="स्वागत समारोह" 
@@ -166,22 +223,51 @@
                             <p class="event-time" data-en="7:00 PM onwards" 
                                data-hi="शाम 7:00 बजे से आगे" 
                                data-mr="संध्याकाळी 7:00 वाजता पासून">7:00 PM onwards</p>
-                            <p class="event-location" data-en="Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee" 
-                               data-hi="बिटलीजी लॉन, रानाला रोड, कलमना रोड, कैंपटी" 
-                               data-mr="बिटलीजी लॉन, रानाला रोड, कलमना रोड, कांपटी">Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee</p>
+                            <p class="event-location" data-en="Balaji Lawn, Ranala Road, Kalmana Road, Kamptee" 
+                               data-hi="बालाजी लॉन, रानाला रोड, कलमना रोड, कैंपटी" 
+                               data-mr="बालाजी लॉन, रानाला रोड, कलमना रोड, कांपटी">Balaji Lawn, Ranala Road, Kalmana Road, Kamptee</p>
                             <div class="ceremony-buttons">
-                                <div class="addeventatc" data-styling="none">
-                                    <div class="addeventatc_button" 
-                                         data-en="Add to Calendar" 
-                                         data-hi="कैलेंडर में जोड़ें" 
-                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
-                                    <span class="start">04/12/2025 07:00 PM</span>
-                                    <span class="end">04/12/2025 11:00 PM</span>
-                                    <span class="timezone">Asia/Kolkata</span>
-                                    <span class="title">Vishal & Bharati's Reception</span>
-                                    <span class="location">Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee</span>
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="https://www.google.com/calendar/render?action=TEMPLATE" 
+                                        class="calendar-btn google-btn" 
+                                        onclick="this.href=generateGoogleCalendarLink({
+                                            title: 'Vishal & Bharati\'s Haldi',
+                                            start: '2025-04-10T16:00:00+05:30',
+                                            end: '2025-04-10T18:00:00+05:30',
+                                            location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                            timezone: 'Asia/Kolkata'
+                                        })"
+                                        target="_blank"
+                                        aria-label="Add to Google Calendar"
+                                        data-en="Google Calendar" 
+                                        data-hi="गूगल कैलेंडर" 
+                                        data-mr="गूगल कॅलेंडर">
+                                            <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
+                                            <span>Google Calendar</span>
+                                        </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
                                 </div>
-                                <a href="https://maps.google.com/?q=Bitliji+Lawn,+Ranala+Road,+Kalmana+Road,+Kamptee" 
+                                <a href="https://maps.google.com/?q=Balaji+Lawn,+Ranala+Road,+Kalmana+Road,+Kamptee" 
                                    target="_blank" 
                                    class="location-btn" 
                                    data-en="Check on map" 
@@ -195,37 +281,12 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Doodle Girl Inside Reception Section
-                        <div class="doodle-girl">
-                            <div class="chat-bubble" 
-                                data-en="Come to my Mama's wedding, pretty please, okay?" 
-                                data-hi="मेरे मामा की शादी में आओ ना, प्लीज प्लीज, ठीक है?" 
-                                data-mr="माझ्या ममाजीच्या लग्नाला नक्की यायचं बरं का!">
-                                <span class="quote-text" 
-                                      data-en="Come to my Mama's wedding, pretty please, okay?" 
-                                      data-hi="मेरे मामाजी की शादी में ज़रूर आना, प्लीज प्लीज, ठीक है?" 
-                                      data-mr="माझ्या मामाजीच्या लग्नाला नक्की यायचं बरं का!">
-                                    Come to my Mama's wedding, pretty please, okay?
-                                </span>
-                                <span class="speaker-name" 
-                                      data-en="- Kiyaara" 
-                                      data-hi="- कियारा" 
-                                      data-mr="- कियारा">- Kiyaara</span>
-                                <div class="button-container">
-                                    <button class="action-btn sure" 
-                                            data-en="Sure!" 
-                                            data-hi="ज़रूर!" 
-                                            data-mr="नक्की!">Sure!</button>
-                                </div>
-                            </div>
-                            <img src="27914.jpg" alt="Kiyaara" class="doodle-img">
-                        </div> -->
                     </div>
                 </div>
 
                 <!-- Inviters -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image6.png');">
+                    <div class="image-container" style="background-image: url('image6.webp');">
                         <div class="text-content">
                             <h3 data-en="Invited By" 
                                 data-hi="द्वारा आमंत्रित" 
