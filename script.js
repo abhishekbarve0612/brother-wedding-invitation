@@ -17,6 +17,56 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
+// Doodle Girl Animation (Trigger on Reception Section Visibility)
+const doodleGirl = document.querySelector('.doodle-girl');
+let hasAppeared = false;
+let dismissedByButton = false; // Flag to track if doodle was dismissed by button
+
+function hideDoodleGirl(source) {
+    doodleGirl.classList.remove('visible');
+    doodleGirl.classList.add('hidden');
+    if (source === 'button') {
+        dismissedByButton = true;
+    }
+}
+
+function showDoodleGirl() {
+    if (!hasAppeared && !dismissedByButton) {
+        doodleGirl.classList.remove('hidden');
+        doodleGirl.classList.add('visible');
+        hasAppeared = true;
+    }
+}
+
+// Trigger doodle girl when Reception section is 30% in view
+const receptionSection = document.getElementById('reception-inviters');
+const doodleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            showDoodleGirl();
+        }
+    });
+}, { threshold: 0.3 });
+
+if (receptionSection) {
+    doodleObserver.observe(receptionSection);
+}
+
+// Hide doodle girl when scrolling back to the top (Hero section)
+window.addEventListener('scroll', () => {
+    if (window.scrollY < 50) {
+        dismissedByButton = false; // Allow reappearance after reaching top
+        hasAppeared = false; // Reset appearance flag
+        hideDoodleGirl('scroll'); // Hide when scrolling to top
+    }
+});
+
+// Add event listener to the "Sure" button
+const sureBtn = document.querySelector('.action-btn.sure');
+if (sureBtn) {
+    sureBtn.addEventListener('click', () => hideDoodleGirl('button'));
+}
+
 // Language Toggle
 const langEnBtn = document.getElementById('lang-en');
 const langHiBtn = document.getElementById('lang-hi');
@@ -25,24 +75,13 @@ const elements = document.querySelectorAll('[data-en]');
 
 function setLanguage(lang) {
     elements.forEach(el => {
-        // Special handling for the h1 element to wrap the conjunction in a span
-        if (el.tagName === 'H1') {
-            let text = el.getAttribute(`data-${lang}`);
-            if (lang === 'en') {
-                el.innerHTML = text.replace(' & ', ' <span class="ampersand">&</span> ');
-            } else if (lang === 'hi') {
-                el.innerHTML = text.replace(' और ', ' <span class="ampersand">और</span> ');
-            } else if (lang === 'mr') {
-                el.innerHTML = text.replace(' आणि ', ' <span class="ampersand">आणि</span> ');
-            }
-        }
-        // Check if the element is the chat bubble (which has nested elements)
-        else if (el.classList.contains('chat-bubble')) {
-            // Update the nested quote-text, speaker-name, and buttons separately
+        if (el.classList.contains('ampersand-hero')) {
+            // Handle the ampersand in the Hero section
+            el.textContent = el.getAttribute(`data-${lang}`);
+        } else if (el.classList.contains('chat-bubble')) {
             const quoteText = el.querySelector('.quote-text');
             const speakerName = el.querySelector('.speaker-name');
             const sureBtn = el.querySelector('.action-btn.sure');
-            const noThanksBtn = el.querySelector('.action-btn.no-thanks');
             if (quoteText) {
                 quoteText.textContent = quoteText.getAttribute(`data-${lang}`);
             }
@@ -52,11 +91,13 @@ function setLanguage(lang) {
             if (sureBtn) {
                 sureBtn.textContent = sureBtn.getAttribute(`data-${lang}`);
             }
-            if (noThanksBtn) {
-                noThanksBtn.textContent = noThanksBtn.getAttribute(`data-${lang}`);
+        } else if (el.classList.contains('location-btn')) {
+            // Update only the text inside the <span> to preserve the GPS icon
+            const span = el.querySelector('span');
+            if (span) {
+                span.textContent = el.getAttribute(`data-${lang}`);
             }
         } else {
-            // For all other elements, update the text content directly
             el.textContent = el.getAttribute(`data-${lang}`);
         }
     });
@@ -69,64 +110,68 @@ langEnBtn.addEventListener('click', () => setLanguage('en'));
 langHiBtn.addEventListener('click', () => setLanguage('hi'));
 langMrBtn.addEventListener('click', () => setLanguage('mr'));
 
-// RSVP Functionality
-const rsvpBtn = document.querySelector('.rsvp-btn');
-const rsvpForm = document.querySelector('.rsvp-form');
-const form = document.getElementById('rsvpForm');
+// Petal Falling Animation
+const canvas = document.getElementById('petals');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-rsvpBtn.addEventListener('click', () => {
-    rsvpForm.style.display = rsvpForm.style.display === 'none' ? 'block' : 'none';
-});
+const petals = [];
+const numPetals = 50;
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const guests = document.getElementById('guests').value;
-    const message = document.getElementById('message').value;
-    alert(`Thank you, ${name}! Number of Guests: ${guests}. Your response: "${message}" has been noted.`);
-    form.reset();
-    rsvpForm.style.display = 'none';
-});
+class Petal {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height - canvas.height;
+        this.size = Math.random() * 10 + 5;
+        this.speedY = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 2 - 1;
+        this.angle = Math.random() * 360;
+        this.spin = Math.random() * 2 - 1;
+    }
 
-// Doodle Girl Animation on Scroll
-const doodleGirl = document.querySelector('.doodle-girl');
-let hasAppeared = false;
-let dismissedByButton = false; // Flag to track if doodle was dismissed by button
+    update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.angle += this.spin;
 
-// Function to hide the doodle girl
-function hideDoodleGirl(source) {
-    doodleGirl.classList.remove('visible');
-    doodleGirl.classList.add('hidden');
-    if (source === 'button') {
-        dismissedByButton = true; // Set flag if dismissed by button
+        if (this.y > canvas.height) {
+            this.y = -this.size;
+            this.x = Math.random() * canvas.width;
+            this.speedY = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 2 - 1;
+        }
+    }
+
+    draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.angle * Math.PI) / 180);
+        ctx.fillStyle = '#f7c948';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
     }
 }
 
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-    const scrollPercentage = (scrollPosition / documentHeight) * 100;
-
-    // Reset dismissedByButton when scrolling back to the top
-    if (window.scrollY < 50) {
-        dismissedByButton = false; // Allow reappearance after reaching top
-        hasAppeared = false; // Reset appearance flag
-        hideDoodleGirl('scroll'); // Hide when scrolling to top
-    }
-
-    // Show doodle girl when scrolling to 80% of the page, but only if not dismissed by button
-    if (scrollPercentage >= 60 && !hasAppeared && !dismissedByButton) {
-        doodleGirl.classList.remove('hidden');
-        doodleGirl.classList.add('visible');
-        hasAppeared = true;
-    }
-});
-
-// Add event listeners to the buttons
-const sureBtn = document.querySelector('.action-btn.sure');
-const noThanksBtn = document.querySelector('.action-btn.no-thanks');
-
-if (sureBtn && noThanksBtn) {
-    sureBtn.addEventListener('click', () => hideDoodleGirl('button'));
-    noThanksBtn.addEventListener('click', () => hideDoodleGirl('button'));
+for (let i = 0; i < numPetals; i++) {
+    petals.push(new Petal());
 }
+
+function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(petal => {
+        petal.update();
+        petal.draw();
+    });
+    requestAnimationFrame(animatePetals);
+}
+
+animatePetals();
+
+// Resize Canvas on Window Resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});

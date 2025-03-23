@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal & Bride's Wedding</title>
-    <!-- Google Fonts -->
+    <title>Vishal & Bharati's Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Devanagari&family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- AddEvent Script -->
     <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Petal Falling Canvas -->
+    <canvas id="petals"></canvas>
+
     <div class="container">
         <!-- Language Toggle -->
         <div class="lang-toggle">
@@ -20,237 +21,244 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="hero fade-in">
-            <!-- Falling Petals -->
-            <div class="petals">
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-            </div>
-            <div class="hero-card">
-                <h2 class="shloka" data-en="May Lord Indra unite this couple like chakravaka birds, blessing them with joy and long life." 
-                    data-hi="इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥"
-                    data-mr="इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विश्वमायुर्व्यश्नुताम् ॥">
-                    इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती । प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥
-                </h2>
-                <p class="intro" data-en="Together with their families" 
-                   data-hi="अपने परिवारों के साथ" 
-                   data-mr="त्यांच्या कुटुंबांसह">Together with their families</p>
-                <h1 data-en="Vishal & Bride" 
-                    data-hi="विशाल और दुल्हन" 
-                    data-mr="विशाल आणि वधू">
-                    Vishal <span class="ampersand">&</span> Bride
-                </h1>
-                <p class="subtitle" data-en="joyfully invite you to their wedding celebration" 
-                   data-hi="आपको अपने विवाह समारोह में खुशी से आमंत्रित करते हैं" 
-                   data-mr="आपल्याला त्यांच्या विवाह समारंभासाठी आनंदाने आमंत्रित करतात">
-                    joyfully invite you to their wedding celebration
-                </p>
-                <p class="date" data-en="April 11, 2025" 
-                   data-hi="11 अप्रैल 2025" 
-                   data-mr="11 एप्रिल 2025">April 11, 2025</p>
-                <p class="venue" data-en="The Grand Venue, Nagpur" 
-                   data-hi="द ग्रैंड वेन्यू, नागपुर" 
-                   data-mr="द ग्रँड व्हेन्यू, नागपूर">The Grand Venue, Nagpur</p>
-                <button class="scroll-btn" onclick="scrollToSection('schedule')" 
-                        data-en="See Details" 
-                        data-hi="विवरण देखें" 
-                        data-mr="तपशील पहा">See Details</button>
-            </div>
-        </section>
-
-        <!-- Schedule Section -->
-        <section id="schedule" class="section fade-in">
-            <h2 data-en="Schedule" 
-                data-hi="कार्यक्रम" 
-                data-mr="वेळापत्रक">Schedule</h2>
-            <div class="schedule-container">
-                <div class="schedule-item">
-                    <h3 data-en="Haldi Ceremony" 
-                        data-hi="हल्दी समारोह" 
-                        data-mr="हळदी समारंभ">Haldi Ceremony</h3>
-                    <p class="event-date" data-en="April 10, 2025" 
-                       data-hi="10 अप्रैल 2025" 
-                       data-mr="10 एप्रिल 2025">April 10, 2025</p>
-                    <p class="event-time" data-en="4:00 PM" 
-                       data-hi="शाम 4:00 बजे" 
-                       data-mr="संध्याकाळी 4:00 वाजता">4:00 PM</p>
-                    <p class="event-location" data-en="The Grand Venue, Nagpur" 
-                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
-                       data-mr="द ग्रँड व्हेन्यू, नागपूर">The Grand Venue, Nagpur</p>
-                </div>
-                <div class="schedule-item">
-                    <h3 data-en="Wedding Ceremony" 
-                        data-hi="विवाह समारोह" 
-                        data-mr="विवाह समारंभ">Wedding Ceremony</h3>
-                    <p class="event-date" data-en="April 11, 2025" 
-                       data-hi="11 अप्रैल 2025" 
-                       data-mr="11 एप्रिल 2025">April 11, 2025</p>
-                    <p class="event-time" data-en="6:00 PM" 
-                       data-hi="शाम 6:00 बजे" 
-                       data-mr="संध्याकाळी 6:00 वाजता">6:00 PM</p>
-                    <p class="event-location" data-en="The Grand Venue, Nagpur" 
-                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
-                       data-mr="द ग्रँड व्हेन्यू, नागपूर">The Grand Venue, Nagpur</p>
-                </div>
-                <div class="schedule-item">
-                    <h3 data-en="Reception" 
-                        data-hi="स्वागत समारोह" 
-                        data-mr="स्वागत समारंभ">Reception</h3>
-                    <p class="event-date" data-en="April 12, 2025" 
-                       data-hi="12 अप्रैल 2025" 
-                       data-mr="12 एप्रिल 2025">April 12, 2025</p>
-                    <p class="event-time" data-en="7:00 PM" 
-                       data-hi="शाम 7:00 बजे" 
-                       data-mr="संध्याकाळी 7:00 वाजता">7:00 PM</p>
-                    <p class="event-location" data-en="The Grand Venue, Nagpur" 
-                       data-hi="द ग्रैंड वेन्यू, नागपुर" 
-                       data-mr="द ग्रँड व्हेन्यू, नागपूर">The Grand Venue, Nagpur</p>
+        <section id="hero" class="hero fade-in">
+            <div class="card">
+                <div class="image-container" style="background-image: url('image0.png');">
+                    <div class="text-content">
+                        <p class="initials" data-en="VB" 
+                           data-hi="VB" 
+                           data-mr="VB">VB</p>
+                        <p class="save-the-date" data-en="Save The Date" 
+                           data-hi="तारीख सेव करें" 
+                           data-mr="तारीख जतन करा">Save The Date</p>
+                        <p class="invitation" data-en="You are Cordially invited to attend this" 
+                           data-hi="आपको इस शुभ अवसर पर सादर आमंत्रित किया जाता है" 
+                           data-mr="आपणास या शुभ प्रसंगी उपस्थित राहण्याचे हार्दिक निमंत्रण आहे">You are Cordially invited to attend this</p>
+                        <p class="occasion" data-en="Auspicious Occasion of Wedding" 
+                           data-hi="विवाह के शुभ अवसर पर" 
+                           data-mr="विवाहाच्या शुभ प्रसंगी">Auspicious Occasion of Wedding</p>
+                        <h1 class="groom-name" data-en="Vishal" 
+                           data-hi="विशाल" 
+                           data-mr="विशाल">Vishal</h1>
+                        <span class="ampersand-hero" data-en="&" 
+                              data-hi="और" 
+                              data-mr="आणि">&</span>
+                        <h1 class="bride-name" data-en="Bharti" 
+                           data-hi="भारती" 
+                           data-mr="भारती">Bharti</h1>
+                        <button class="scroll-btn" onclick="scrollToSection('haldi-wedding')" 
+                                data-en="See Details" 
+                                data-hi="विवरण देखें" 
+                                data-mr="तपशील पहा">See Details</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- RSVP Section -->
-        <section class="section fade-in">
-            <h2 data-en="RSVP (Optional)" 
-                data-hi="आरएसवीपी (वैकल्पिक)" 
-                data-mr="आरएसव्हीपी (पर्यायी)">RSVP (Optional)</h2>
-            <button class="rsvp-btn" 
-                    data-en="Let Us Know" 
-                    data-hi="हमें बताएं" 
-                    data-mr="आम्हाला कळवा">Let Us Know</button>
-            <div class="rsvp-form" style="display: none;">
-                <form id="rsvpForm">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <input type="number" id="guests" placeholder="Number of Guests" min="1" required>
-                    <textarea id="message" placeholder="Your Message (e.g., 'I will come')" required></textarea>
-                    <button type="submit" 
-                            data-en="Submit" 
-                            data-hi="जमा करें" 
-                            data-mr="सबमिट करा">Submit</button>
-                </form>
-            </div>
-            <p><a href="https://wa.me/919876543210?text=Hi,%20I%20will%20attend%20Vishal%20&%20Bride's%20wedding!" 
-                  class="whatsapp-link" 
-                  data-en="Or RSVP via WhatsApp" 
-                  data-hi="या व्हाट्सएप के माध्यम से आरएसवीपी करें" 
-                  data-mr="किंवा व्हॉट्सअॅपद्वारे आरएसव्हीपी करा">Or RSVP via WhatsApp</a></p>
-        </section>
-
-        <!-- Add to Calendar Section -->
-        <section class="section fade-in">
-            <h2 data-en="Add to Calendar" 
-                data-hi="कैलेंडर में जोड़ें" 
-                data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</h2>
-            <div class="calendar-buttons">
-                <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" 
-                         data-en="Haldi" 
-                         data-hi="हल्दी" 
-                         data-mr="हळदी">Haldi</div>
-                    <span class="start event-date">04/10/2025</span>
-                    <span class="start-time event-time">04:00 PM</span>
-                    <span class="end event-date">04/10/2025</span>
-                    <span class="end-time event-time">06:00 PM</span>
-                    <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Vishal & Bride's Haldi</span>
-                    <span class="location event-location">The Grand Venue, Nagpur</span>
+        <!-- Haldi & Wedding Section -->
+        <section id="haldi-wedding" class="ceremonies fade-in">
+            <div class="ceremonies-container">
+                <!-- Haldi Ceremony -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image3.png');">
+                        <div class="text-content">
+                            <h3 data-en="Haldi Ceremony" 
+                                data-hi="हल्दी समारोह" 
+                                data-mr="हळदी समारंभ">Haldi Ceremony</h3>
+                            <p class="event-date" data-en="April 10, 2025" 
+                               data-hi="10 अप्रैल 2025" 
+                               data-mr="10 एप्रिल 2025">April 10, 2025</p>
+                            <p class="event-time" data-en="4:00 PM" 
+                               data-hi="शाम 4:00 बजे" 
+                               data-mr="संध्याकाळी 4:00 वाजता">4:00 PM</p>
+                            <p class="event-location" data-en="Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee" 
+                               data-hi="प्लॉट नंबर 97, कुम्भारे कॉलोनी, सम्राट नगर, कैंपटी" 
+                               data-mr="प्लॉट क्र. 97, कुम्भारे कॉलनी, सम्राट नगर, कांपटी">Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee</p>
+                            <div class="ceremony-buttons">
+                                <div class="addeventatc" data-styling="none">
+                                    <div class="addeventatc_button" 
+                                         data-en="Add to Calendar" 
+                                         data-hi="कैलेंडर में जोड़ें" 
+                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
+                                    <span class="start">04/10/2025 04:00 PM</span>
+                                    <span class="end">04/10/2025 06:00 PM</span>
+                                    <span class="timezone">Asia/Kolkata</span>
+                                    <span class="title">Vishal & Bharati's Haldi</span>
+                                    <span class="location">Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee</span>
+                                </div>
+                                <a href="https://maps.app.goo.gl/nWDCHBsZvt8u9abR7" 
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" 
-                         data-en="Wedding" 
-                         data-hi="विवाह" 
-                         data-mr="विवाह">Wedding</div>
-                    <span class="start event-date">04/11/2025</span>
-                    <span class="start-time event-time">06:00 PM</span>
-                    <span class="end event-date">04/11/2025</span>
-                    <span class="end-time event-time">10:00 PM</span>
-                    <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Vishal & Bride's Wedding</span>
-                    <span class="location event-location">The Grand Venue, Nagpur</span>
-                </div>
-                <div class="addeventatc" data-styling="none">
-                    <div class="addeventatc_button" 
-                         data-en="Reception" 
-                         data-hi="स्वागत" 
-                         data-mr="स्वागत">Reception</div>
-                    <span class="start event-date">04/12/2025</span>
-                    <span class="start-time event-time">07:00 PM</span>
-                    <span class="end event-date">04/12/2025</span>
-                    <span class="end-time event-time">11:00 PM</span>
-                    <span class="timezone">Asia/Kolkata</span>
-                    <span class="title">Vishal & Bride's Reception</span>
-                    <span class="location event-location">The Grand Venue, Nagpur</span>
-                </div>
-            </div>
-        </section>
 
-        <!-- Location Section -->
-        <section class="section fade-in">
-            <h2 data-en="Location" 
-                data-hi="स्थान" 
-                data-mr="स्थान">Location</h2>
-            <p data-en="The Grand Venue, Nagpur" 
-               data-hi="द ग्रैंड वेन्यू, नागपुर" 
-               data-mr="द ग्रँड व्हेन्यू, नागपूर">The Grand Venue, Nagpur</p>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.028614880682!2d79.088154614159!3d21.145800487092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a873d2f5%3A0x3f4b4d81d7b3e2f!2sNagpur%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1697654321!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="400" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </section>
-
-        <!-- Thank You Section -->
-        <section class="section fade-in thank-you">
-            <h2 data-en="Thank You" 
-                data-hi="धन्यवाद" 
-                data-mr="धन्यवाद">Thank You</h2>
-            <p data-en="We would be honored by your presence to bless us on our special day. Please take the time to join us!" 
-               data-hi="हमारी विशेष दिन पर हमें आशीर्वाद देने के लिए आपकी उपस्थिति से हम सम्मानित होंगे। कृपया हमारे साथ शामिल होने के लिए समय निकालें!" 
-               data-mr="आमच्या खास दिवशी आम्हाला आशीर्वाद देण्यासाठी तुमच्या उपस्थितीने आम्हाला सन्मान वाटेल. कृपया आमच्यासोबत सामील होण्यासाठी वेळ काढा!">
-                We would be honored by your presence to bless us on our special day. Please take the time to join us!
-            </p>
-        </section>
-
-        <!-- Doodle Girl with Chat Bubble -->
-        <div class="doodle-girl">
-            <div class="chat-bubble" 
-                 data-en="Come to my Mama's wedding, pretty please, okay?" 
-                 data-hi="मेरे मामा की शादी में आओ ना, प्लीज प्लीज, ठीक है?" 
-                 data-mr="माझ्या ममाजीच्या लग्नाला नक्की यायचं बरं का!">
-                <span class="quote-text" 
-                      data-en="Come to my Mama's wedding, pretty please, okay?" 
-                    data-hi="मेरे मामाजी की शादी में ज़रूर आना, प्लीज प्लीज, ठीक है?" 
-                    data-mr="माझ्या मामाजीच्या लग्नाला नक्की यायचं बरं का!">
-                    Come to my Mama's wedding, pretty please, okay?
-                </span>
-                <span class="speaker-name" 
-                    data-en="- Kiyaara" 
-                    data-hi="- कियारा" 
-                    data-mr="- कियारा">- Kiyaara</span>
-                <div class="button-container">
-                    <button class="action-btn sure" 
-                            data-en="Sure!" 
-                            data-hi="ज़रूर!" 
-                            data-mr="नक्की!">Sure!</button>
-                    <button class="action-btn no-thanks" 
-                            data-en="No thanks" 
-                            data-hi="नहीं, शुक्रिया" 
-                            data-mr="नको, धन्यवाद">No thanks</button>
+                <!-- Wedding Ceremony -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image9.png');">
+                        <div class="text-content">
+                            <h3 data-en="Wedding Ceremony" 
+                                data-hi="विवाह समारोह" 
+                                data-mr="विवाह समारंभ">Wedding Ceremony</h3>
+                            <p class="event-date" data-en="April 11, 2025" 
+                               data-hi="11 अप्रैल 2025" 
+                               data-mr="11 एप्रिल 2025">April 11, 2025</p>
+                            <p class="event-time" data-en="7:00 PM onwards" 
+                               data-hi="शाम 7:00 बजे से आगे" 
+                               data-mr="संध्याकाळी 7:00 वाजता पासून">7:00 PM onwards</p>
+                            <p class="event-location" data-en="Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar" 
+                               data-hi="प्रकाश खरोले का घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर" 
+                               data-mr="प्रकाश खरोले यांचे घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर">Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar</p>
+                            <div class="ceremony-buttons">
+                                <div class="addeventatc" data-styling="none">
+                                    <div class="addeventatc_button" 
+                                         data-en="Add to Calendar" 
+                                         data-hi="कैलेंडर में जोड़ें" 
+                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
+                                    <span class="start">04/11/2025 07:00 PM</span>
+                                    <span class="end">04/11/2025 11:00 PM</span>
+                                    <span class="timezone">Asia/Kolkata</span>
+                                    <span class="title">Vishal & Bharati's Wedding</span>
+                                    <span class="location">Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar</span>
+                                </div>
+                                <a href="https://maps.app.goo.gl/dWArFPww9N3gStj49" 
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <img src="27914.jpg" alt="Doodle Girl" class="doodle-img">
-        </div>
+        </section>
+
+        <!-- Reception & Inviters Section -->
+        <section id="reception-inviters" class="ceremonies fade-in">
+            <div class="ceremonies-container">
+                <!-- Reception -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image5.png');">
+                        <div class="text-content">
+                            <h3 data-en="Reception" 
+                                data-hi="स्वागत समारोह" 
+                                data-mr="स्वागत समारंभ">Reception</h3>
+                            <p class="event-date" data-en="April 12, 2025" 
+                               data-hi="12 अप्रैल 2025" 
+                               data-mr="12 एप्रिल 2025">April 12, 2025</p>
+                            <p class="event-time" data-en="7:00 PM onwards" 
+                               data-hi="शाम 7:00 बजे से आगे" 
+                               data-mr="संध्याकाळी 7:00 वाजता पासून">7:00 PM onwards</p>
+                            <p class="event-location" data-en="Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee" 
+                               data-hi="बिटलीजी लॉन, रानाला रोड, कलमना रोड, कैंपटी" 
+                               data-mr="बिटलीजी लॉन, रानाला रोड, कलमना रोड, कांपटी">Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee</p>
+                            <div class="ceremony-buttons">
+                                <div class="addeventatc" data-styling="none">
+                                    <div class="addeventatc_button" 
+                                         data-en="Add to Calendar" 
+                                         data-hi="कैलेंडर में जोड़ें" 
+                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</div>
+                                    <span class="start">04/12/2025 07:00 PM</span>
+                                    <span class="end">04/12/2025 11:00 PM</span>
+                                    <span class="timezone">Asia/Kolkata</span>
+                                    <span class="title">Vishal & Bharati's Reception</span>
+                                    <span class="location">Bitliji Lawn, Ranala Road, Kalmana Road, Kamptee</span>
+                                </div>
+                                <a href="https://maps.google.com/?q=Bitliji+Lawn,+Ranala+Road,+Kalmana+Road,+Kamptee" 
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Doodle Girl Inside Reception Section
+                        <div class="doodle-girl">
+                            <div class="chat-bubble" 
+                                data-en="Come to my Mama's wedding, pretty please, okay?" 
+                                data-hi="मेरे मामा की शादी में आओ ना, प्लीज प्लीज, ठीक है?" 
+                                data-mr="माझ्या ममाजीच्या लग्नाला नक्की यायचं बरं का!">
+                                <span class="quote-text" 
+                                      data-en="Come to my Mama's wedding, pretty please, okay?" 
+                                      data-hi="मेरे मामाजी की शादी में ज़रूर आना, प्लीज प्लीज, ठीक है?" 
+                                      data-mr="माझ्या मामाजीच्या लग्नाला नक्की यायचं बरं का!">
+                                    Come to my Mama's wedding, pretty please, okay?
+                                </span>
+                                <span class="speaker-name" 
+                                      data-en="- Kiyaara" 
+                                      data-hi="- कियारा" 
+                                      data-mr="- कियारा">- Kiyaara</span>
+                                <div class="button-container">
+                                    <button class="action-btn sure" 
+                                            data-en="Sure!" 
+                                            data-hi="ज़रूर!" 
+                                            data-mr="नक्की!">Sure!</button>
+                                </div>
+                            </div>
+                            <img src="27914.jpg" alt="Kiyaara" class="doodle-img">
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- Inviters -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image6.png');">
+                        <div class="text-content">
+                            <h3 data-en="Invited By" 
+                                data-hi="द्वारा आमंत्रित" 
+                                data-mr="आमंत्रित केले">Invited By</h3>
+                            <div class="inviters-list">
+                                <p data-en="Smt. Sunita G Barve" 
+                                   data-hi="श्रीमती सुनीता जी बर्वे" 
+                                   data-mr="श्रीमती सुनीता जी बर्वे">Smt. Sunita G Barve</p>
+                                <p data-en="Shri Prakash S Barve" 
+                                   data-hi="श्री प्रकाश एस बर्वे" 
+                                   data-mr="श्री प्रकाश एस बर्वे">Shri Prakash S Barve</p>
+                                <p data-en="Smt. Savita Prakash Barve" 
+                                   data-hi="श्रीमती सविता प्रकाश बर्वे" 
+                                   data-mr="श्रीमती सविता प्रकाश बर्वे">Smt. Savita Prakash Barve</p>
+                                <p data-en="Shri. Vipin G Barve" 
+                                   data-hi="श्री विपिन जी बर्वे" 
+                                   data-mr="श्री विपिन जी बर्वे">Shri. Vipin G Barve</p>
+                                <p data-en="Avinash P Barve" 
+                                   data-hi="अविनाश पी बर्वे" 
+                                   data-mr="अविनाश पी बर्वे">Avinash P Barve</p>
+                                <p data-en="Abhishek P Barve" 
+                                   data-hi="अभिषेक पी बर्वे"
+                                   data-mr="अभिषेक पी बर्वे">Abhishek P Barve</p>
+                                <p data-en="and all Barve family" 
+                                   data-hi="और समस्त बर्वे परिवार" 
+                                   data-mr="आणि सर्व बर्वे कुटुंब">and all Barve family</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <script src="script.js"></script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'924554b8cfb753aa',t:'MTc0MjY0Mjc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

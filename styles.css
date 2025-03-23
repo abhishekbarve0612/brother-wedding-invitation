@@ -11,11 +11,23 @@ body {
     color: #333;
     line-height: 1.6;
     position: relative;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 100%;
     margin: 0 auto;
+}
+
+/* Petal Falling Animation */
+#petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Language Toggle */
@@ -42,110 +54,91 @@ body {
     color: #333;
 }
 
+/* Card Styling (Image on Card) */
+.card {
+    background: #fff;
+    border: 1px solid #f7c948;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
-                url('https://images.unsplash.com/photo-1611080626919-7cf5a3dbab5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(to bottom, #f9f5f1, #f7e1b5);
+    padding: 20px;
+}
+
+.hero .image-container {
     background-size: cover;
     background-position: center;
-    padding: 20px;
+    width: 700px;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    overflow: hidden;
+    color: #fff;
 }
 
-/* Falling Petals */
-.petals {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.petal {
-    position: absolute;
-    width: 10px;
-    height: 20px;
-    background: #f7c948;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    animation: fall 5s linear infinite;
-}
-
-.petal:nth-child(1) { left: 10%; animation-delay: 0s; }
-.petal:nth-child(2) { left: 30%; animation-delay: 1s; }
-.petal:nth-child(3) { left: 50%; animation-delay: 2s; }
-.petal:nth-child(4) { left: 70%; animation-delay: 3s; }
-.petal:nth-child(5) { left: 90%; animation-delay: 4s; }
-
-@keyframes fall {
-    0% {
-        transform: translateY(-20%) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.hero-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 90%;
-    width: 500px;
+.hero .text-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     border-radius: 10px;
-    z-index: 1;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hero .shloka {
-    font-family: 'Noto Serif Devanagari', serif;
-    font-size: 1.1rem;
-    color: #6b4e31;
-    margin-bottom: 15px;
-}
-
-.hero .intro {
-    font-size: 0.9rem;
-    color: #6b4e31;
+.hero .initials {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
-.hero h1 {
+.hero .save-the-date {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero .invitation {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.hero .occasion {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.hero .groom-name,
+.hero .bride-name {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
+    letter-spacing: 5px;
+    margin: 0;
 }
 
-.hero h1 .ampersand {
-    color: #f7c948; /* Golden yellow for the & (and equivalents) */
-    margin: 0 5px; /* Add some spacing around the & on larger screens */
-}
-
-.hero .subtitle {
-    font-size: 1rem;
-    color: #6b4e31;
-    margin-bottom: 15px;
-}
-
-.hero .date {
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.hero .venue {
-    font-size: 1rem;
-    color: #6b4e31;
-    margin-bottom: 20px;
+.hero .ampersand-hero {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #f7c948;
 }
 
 .scroll-btn {
@@ -156,6 +149,8 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s ease;
+    color: #333;
+    margin-top: 20px;
 }
 
 .scroll-btn:hover {
@@ -163,256 +158,155 @@ body {
     color: #fff;
 }
 
-/* General Section Styles */
-.section {
+/* Ceremonies Section */
+.ceremonies {
     padding: 40px 20px;
-    text-align: center;
+    background: linear-gradient(to bottom, #f9f5f1, #f7e1b5);
 }
 
-.section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #6b4e31;
-}
-
-/* Schedule Section */
-.schedule-container {
+.ceremonies-container {
     display: flex;
-    flex-direction: column;
-}
-
-.schedule-item {
-    margin: 20px 0;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.schedule-item:hover {
-    transform: translateY(-5px);
-}
-
-.schedule-item h3 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2rem;
-    color: #f7c948;
-    margin-bottom: 15px;
-}
-
-.schedule-item .event-date {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #6b4e31;
-    margin-bottom: 5px;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.schedule-item .event-date::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background: #f7c948;
-}
-
-.schedule-item .event-time {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.schedule-item .event-location {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #6b4e31;
-}
-
-/* RSVP Section */
-.rsvp-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #6b4e31;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.rsvp-btn:hover {
-    background: #f7c948;
-    color: #333;
-}
-
-.rsvp-form {
-    margin-top: 20px;
-}
-
-.rsvp-form input, .rsvp-form textarea {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.rsvp-form input[type="number"] {
-    -moz-appearance: textfield; /* Remove arrows in Firefox */
-}
-
-.rsvp-form input[type="number"]::-webkit-outer-spin-button,
-.rsvp-form input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Remove arrows in Chrome/Safari */
-    margin: 0;
-}
-
-.rsvp-form button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #f7c948;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-/* Style the RSVP via WhatsApp Link */
-.whatsapp-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    color: #fff;
-    background: #25D366; /* WhatsApp green */
-    border-radius: 25px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.whatsapp-link:hover {
-    background: #20b358; /* Slightly darker green on hover */
-    transform: scale(1.05); /* Slight scale-up effect on hover */
-}
-
-/* Add to Calendar Section */
-.calendar-buttons {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.addeventatc {
+.ceremony-item {
+    width: 600px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid #f7c948;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
     background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
 }
 
-.addeventatc:hover {
-    transform: translateY(-5px);
-}
-
-.addeventatc_button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #6b4e31;
+.ceremony-item .image-container {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: block;
     text-align: center;
+    position: relative;
+    border-radius: 15px;
+}
+
+/* Text Content Container for Positioning */
+.text-content {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.ceremony-item h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #f7c948;
     margin-bottom: 10px;
 }
 
-.addeventatc_button:hover {
-    background: #f7c948;
-    color: #333;
-}
-
-.addeventatc .event-date {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
+.ceremony-item .event-date {
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #6b4e31;
-    margin: 5px 0;
-    position: relative;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
-.addeventatc .event-date::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 1px;
-    background: #f7c948;
-}
-
-.addeventatc .event-time {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9rem;
-    color: #333;
-    margin: 5px 0;
-}
-
-.addeventatc .timezone,
-.addeventatc .title {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.8rem;
-    color: #6b4e31;
-    margin: 5px 0;
-}
-
-.addeventatc .location {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #6b4e31;
-    margin: 5px 0;
-}
-
-/* Location Section */
-.map-container {
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Thank You Section */
-.thank-you p {
+.ceremony-item .event-time {
     font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    margin-bottom: 5px;
 }
 
-/* Doodle Girl and Chat Bubble */
+.ceremony-item .event-location {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Inviters List Styling */
+.inviters-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.inviters-list p {
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.ceremony-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.addeventatc_button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: #f7c948;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.addeventatc_button:hover {
+    background: #6b4e31;
+    color: #fff;
+}
+
+.location-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: #6b4e31;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.location-btn:hover {
+    background: #f7c948;
+    color: #333;
+}
+
+.location-btn .gps-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Doodle Girl (Inside Reception Section) */
 .doodle-girl {
     position: fixed;
     bottom: 40%; /* Set default to mid-screen to avoid jump */
-    left: -300px; /* Start completely off-screen */
+    left: -300px; /* Start completely off-screen on the left */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -422,13 +316,13 @@ body {
 }
 
 .doodle-girl.visible {
-    left: -120px; /* Slide in just enough for peeking */
+    left: -120px; /* Slide in just enough for peeking from the left */
     opacity: 1;
     bottom: 40%; /* Keep it at mid-screen */
 }
 
 .doodle-girl.hidden {
-    left: -300px; /* Slide back off-screen */
+    left: -300px; /* Slide back off-screen to the left */
     opacity: 0;
     bottom: 40%; /* Keep it at mid-screen to avoid jump */
 }
@@ -437,8 +331,8 @@ body {
     width: 100px;
     height: 150px;
     transform: rotate(0deg); /* Initial state */
-    transform-origin: bottom left; /* Pivot point for rotation */
-    order: 1;
+    transform-origin: bottom left; /* Pivot point for rotation (left side) */
+    order: 1; /* Image comes after the chat bubble (right in row) */
 }
 
 .doodle-girl.visible .doodle-img {
@@ -450,7 +344,7 @@ body {
     background: #fff;
     border-radius: 15px;
     padding: 15px;
-    margin-left: 10px;
+    margin-left: 10px; /* Position to the right of the doodle girl */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: relative;
     font-size: 0.9rem;
@@ -458,9 +352,9 @@ body {
     max-width: 200px;
     opacity: 0;
     transition: opacity 0.5s ease 0.2s; /* Delay fade-in slightly */
-    order: 2;
+    order: 0; /* Chat bubble comes first (left in row) */
     top: -30px; /* Position near the mouth (adjust based on image) */
-    left: 80px;
+    left: 80px; /* Position to the right of the doodle girl */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -473,17 +367,17 @@ body {
     color: #6b4e31;
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: 20px;
 }
 
 .chat-bubble::after {
     content: '';
     position: absolute;
     bottom: -8px;
-    left: -2px;
+    left: -2px; /* Position on the left side of the bubble */
     border: 10px solid transparent;
     border-top-color: #fff; /* Nip points downward toward the doodle */
-    transform: rotate(-45deg); /* Rotate to point toward the doodle */
+    transform: rotate(-45deg); /* Rotate to point toward the doodle on the left */
 }
 
 .chat-bubble .quote-text {
@@ -529,17 +423,8 @@ body {
     color: #fff;
 }
 
-.chat-bubble .action-btn.no-thanks {
-    background: #f0f0f0; /* Light gray background for "No thanks" */
-    color: #333;
-}
-
 .chat-bubble .action-btn.sure:hover {
     background: #0056b3; /* Darker blue on hover */
-}
-
-.chat-bubble .action-btn.no-thanks:hover {
-    background: #d0d0d0; /* Darker gray on hover */
 }
 
 .doodle-girl.visible .chat-bubble {
@@ -577,80 +462,102 @@ body {
     transform: translateY(0);
 }
 
-/* Desktop Styles */
-@media (min-width: 768px) {
-    .hero .shloka {
-        font-size: 1.3rem;
-    }
-    .hero .intro {
-        font-size: 1rem;
-    }
-    .hero h1 {
+/* Desktop Styles (Large Screens) */
+@media (min-width: 1024px) {
+    .hero .initials {
         font-size: 4rem;
     }
-    .hero .subtitle {
-        font-size: 1.2rem;
+    .hero .groom-name,
+    .hero .bride-name {
+        font-size: 4rem;
     }
-    .hero .date {
-        font-size: 1.5rem;
+    .hero .ampersand-hero {
+        font-size: 3rem;
     }
-    .hero .venue {
-        font-size: 1.2rem;
+    .hero .image-container {
+        width: 700px;
+        height: 900px;
     }
-    .hero-card {
-        padding: 40px;
-        max-width: 600px;
+    .ceremonies-container {
+        flex-wrap: nowrap;
     }
-    .section {
-        padding: 60px 40px;
+    .ceremony-item {
+        width: 50%;
+        height: 900px;
     }
-    .section h2 {
+}
+
+/* Tablet and Mobile Adjustments */
+@media (max-width: 1023px) {
+    .hero .initials {
         font-size: 2.5rem;
     }
-    .schedule-container {
-        flex-direction: row;
-        justify-content: space-around;
+    .hero .save-the-date {
+        font-size: 1.2rem;
     }
-    .schedule-item {
-        width: 30%;
+    .hero .invitation {
+        font-size: 1rem;
     }
-    .calendar-buttons {
-        flex-direction: row;
-        justify-content: center;
+    .hero .occasion {
+        font-size: 1.1rem;
+    }
+    .hero .groom-name,
+    .hero .bride-name {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    .hero .ampersand-hero {
+        font-size: 1.5rem;
+    }
+    .hero .image-container {
+        width: 90%;
+        height: auto;
+        padding-top: 90%;
+    }
+    .ceremonies-container {
+        flex-direction: column;
+    }
+    .ceremony-item {
+        width: 55%;
+        height: 900px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .doodle-img {
+        width: 60px;
+        height: 90px;
+    }
+    .chat-bubble {
+        max-width: 120px;
+        font-size: 0.7rem;
     }
 }
 
-@media (max-width: 1000px) {
-    .hero h1 .ampersand {
-        display: block; /* Make the & (and equivalents) appear on a new line */
-        margin: 5px 0; /* Add vertical spacing around the & */
-        font-size: 2rem; /* Slightly smaller font size for the & */
-    }
-}
-
-/* Mobile Adjustments */
 @media (max-width: 767px) {
-    .hero h1 {
-        font-size: 2rem; /* Reduce font size for smaller screens */
-        line-height: 1.2; /* Adjust line height for better spacing */
+    .ceremony-item {
+        width: 100%;
+    }
+    .hero .image-container {
+        width: calc(100svw - 40px);
+        height: 900px;
     }
     .doodle-girl {
-        left: -250px;
-        bottom: 20%;
+        left: -250px; /* Start off-screen on the left */
+        bottom: 20%; /* Adjust for mobile */
     }
     .doodle-girl.visible {
-        left: -100px; /* Adjust for smaller screens */
+        left: -100px; /* Slide in from the left */
         bottom: 20%;
     }
     .doodle-girl.hidden {
-        left: -250px; /* Slide back off-screen */
-        bottom: 20%; /* Keep it at 20% for mobile to avoid jump */
+        left: -250px; /* Slide back off-screen to the left */
+        bottom: 20%;
     }
     .chat-bubble {
         font-size: 0.8rem;
         max-width: 150px;
         top: -50px; /* Adjust for smaller image */
-        left: 52px;
+        left: 52px; /* Position to the right of the doodle girl */
         min-height: 70px; /* Adjust for smaller screens */
     }
     .chat-bubble .speaker-name {
