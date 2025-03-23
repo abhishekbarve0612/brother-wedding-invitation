@@ -1,6 +1,6 @@
 // script.js
 
-// Generate Google Calendar Link
+// Generate Google Calendar Link (Using accounts.google.com)
 function generateGoogleCalendarLink(event) {
     const { title, start, end, location, timezone } = event;
 
@@ -23,15 +23,18 @@ function generateGoogleCalendarLink(event) {
     const encodedTimezone = encodeURIComponent(timezone);
 
     // Construct the Google Calendar URL
-    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodedTitle}&dates=${startFormatted}/${endFormatted}&details=${encodedDetails}&location=${encodedLocation}&ctz=${encodedTimezone}`;
+    const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodedTitle}&dates=${startFormatted}/${endFormatted}&details=${encodedDetails}&location=${encodedLocation}&ctz=${encodedTimezone}`;
+    const encodedCalendarUrl = encodeURIComponent(calendarUrl);
 
-    // Log the URL for debugging
+    // Use accounts.google.com to handle login
+    const googleCalendarUrl = `https://accounts.google.com/ServiceLogin?service=cl&continue=${encodedCalendarUrl}`;
+
     console.log('Generated Google Calendar URL:', googleCalendarUrl);
 
     return googleCalendarUrl;
 }
 
-// Generate Apple Calendar Link
+// Generate Apple Calendar Link (Using .ics File)
 function generateAppleCalendarLink(event) {
     const { title, start, end, location, timezone } = event;
 
@@ -56,9 +59,47 @@ function generateAppleCalendarLink(event) {
         'END:VCALENDAR'
     ].join('\r\n');
 
-    // Encode the .ics content in a webcal:// URL
+    // Encode the .ics content in a data URL
     const encodedICS = encodeURIComponent(icsContent);
-    return `webcal://data:text/calendar;charset=utf-8,${encodedICS}`;
+    const appleCalendarUrl = `data:text/calendar;charset=utf-8,${encodedICS}`;
+
+    console.log('Generated Apple Calendar ICS URL:', appleCalendarUrl);
+
+    return appleCalendarUrl;
+}
+
+// Generate ICS File Link (For Download)
+function generateICSFileLink(event) {
+    const { title, start, end, location, timezone } = event;
+
+    // Format dates to iCalendar format (YYYYMMDDTHHMMSSZ)
+    const formatDate = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+    const startFormatted = formatDate(new Date(start));
+    const endFormatted = formatDate(new Date(end));
+
+    // Create the iCalendar content
+    const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'BEGIN:VEVENT',
+        `DTSTART:${startFormatted}`,
+        `DTEND:${endFormatted}`,
+        `SUMMARY:${title}`,
+        `LOCATION:${location}`,
+        `TZID:${timezone}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+
+    // Encode the .ics content in a data URL
+    const encodedICS = encodeURIComponent(icsContent);
+    const icsFileUrl = `data:text/calendar;charset=utf-8,${encodedICS}`;
+
+    console.log('Generated ICS File URL:', icsFileUrl);
+
+    return icsFileUrl;
 }
 
 // Smooth Scroll to Section

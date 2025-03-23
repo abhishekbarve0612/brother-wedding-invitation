@@ -93,7 +93,7 @@
                                        data-en="Google Calendar" 
                                        data-hi="गूगल कैलेंडर" 
                                        data-mr="गूगल कॅलेंडर">
-                                        <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
                                         <span>Google Calendar</span>
                                     </a>
                                     <a href="#" 
@@ -110,8 +110,26 @@
                                        data-en="Apple Calendar" 
                                        data-hi="एप्पल कैलेंडर" 
                                        data-mr="एप्पल कॅलेंडर">
-                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
                                         <span>Apple Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-haldi.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
                                     </a>
                                 </div>
                                 <a href="https://maps.app.goo.gl/nWDCHBsZvt8u9abR7" 
@@ -167,7 +185,7 @@
                                        data-en="Google Calendar" 
                                        data-hi="गूगल कैलेंडर" 
                                        data-mr="गूगल कॅलेंडर">
-                                        <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
                                         <span>Google Calendar</span>
                                     </a>
                                     <a href="#" 
@@ -184,11 +202,29 @@
                                        data-en="Apple Calendar" 
                                        data-hi="एप्पल कैलेंडर" 
                                        data-mr="एप्पल कॅलेंडर">
-                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
                                         <span>Apple Calendar</span>
                                     </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-wedding.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
+                                    </a>
                                 </div>
-                                <a href="https://maps.google.com/?q=Dongri+Mines,+Dongri+Bujurg,+Teh.+Tumsar" 
+                                <a href="https://maps.app.goo.gl/HX5QMM6VnNmUwX9H9"
                                    target="_blank" 
                                    class="location-btn" 
                                    data-en="Check on map" 
@@ -232,23 +268,23 @@
                                         data-hi="कैलेंडर में जोड़ें" 
                                         data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
                                 <div class="calendar-options" style="display: none;">
-                                    <a href="https://www.google.com/calendar/render?action=TEMPLATE" 
-                                        class="calendar-btn google-btn" 
-                                        onclick="this.href=generateGoogleCalendarLink({
-                                            title: 'Vishal & Bharati\'s Haldi',
-                                            start: '2025-04-10T16:00:00+05:30',
-                                            end: '2025-04-10T18:00:00+05:30',
-                                            location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
-                                            timezone: 'Asia/Kolkata'
-                                        })"
-                                        target="_blank"
-                                        aria-label="Add to Google Calendar"
-                                        data-en="Google Calendar" 
-                                        data-hi="गूगल कैलेंडर" 
-                                        data-mr="गूगल कॅलेंडर">
-                                            <img src="google-calendar-logo.webp" alt="Google Calendar Logo" class="calendar-logo">
-                                            <span>Google Calendar</span>
-                                        </a>
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
                                     <a href="#" 
                                        class="calendar-btn apple-btn" 
                                        onclick="this.href=generateAppleCalendarLink({
@@ -258,13 +294,32 @@
                                            location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
                                            timezone: 'Asia/Kolkata'
                                        })"
+                                       download="vishal-bharati-reception.ics"
                                        target="_blank"
                                        aria-label="Add to Apple Calendar"
                                        data-en="Apple Calendar" 
                                        data-hi="एप्पल कैलेंडर" 
                                        data-mr="एप्पल कॅलेंडर">
-                                        <img src="apple-calendar-logo.webp" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
                                         <span>Apple Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-reception.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
                                     </a>
                                 </div>
                                 <a href="https://maps.google.com/?q=Balaji+Lawn,+Ranala+Road,+Kalmana+Road,+Kamptee" 
