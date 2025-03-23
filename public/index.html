@@ -3,16 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/11.5.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.5.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-messaging-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-storage-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-remote-config-compat.js"></script>
@@ -23,71 +17,386 @@
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal & Bharati's Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Devanagari&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    
+    <!-- Petal Falling Canvas -->
+    <canvas id="petals"></canvas>
+
+    <div class="container">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button id="lang-en" class="lang-btn active">English</button>
+            <button id="lang-hi" class="lang-btn">हिन्दी</button>
+            <button id="lang-mr" class="lang-btn">मराठी</button>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero fade-in">
+            <div class="card">
+                <div class="image-container" style="background-image: url('image0.webp');">
+                    <div class="text-content">
+                        <p class="initials" data-en="VB" 
+                           data-hi="VB" 
+                           data-mr="VB">VB</p>
+                        <p class="save-the-date" data-en="Save The Date" 
+                           data-hi="तारीख सेव करें" 
+                           data-mr="तारीख जतन करा">Save The Date</p>
+                        <p class="invitation" data-en="You are Cordially invited to attend this" 
+                           data-hi="आपको इस शुभ अवसर पर सादर आमंत्रित किया जाता है" 
+                           data-mr="आपणास या शुभ प्रसंगी उपस्थित राहण्याचे हार्दिक निमंत्रण आहे">You are Cordially invited to attend this</p>
+                        <p class="occasion" data-en="Auspicious Occasion of Wedding" 
+                           data-hi="विवाह के शुभ अवसर पर" 
+                           data-mr="विवाहाच्या शुभ प्रसंगी">Auspicious Occasion of Wedding</p>
+                        <h1 class="groom-name" data-en="Vishal" 
+                           data-hi="विशाल" 
+                           data-mr="विशाल">Vishal</h1>
+                        <span class="ampersand-hero" data-en="&" 
+                              data-hi="और" 
+                              data-mr="आणि">&</span>
+                        <h1 class="bride-name" data-en="Bharti" 
+                           data-hi="भारती" 
+                           data-mr="भारती">Bharti</h1>
+                        <button class="scroll-btn" onclick="scrollToSection('haldi-wedding')" 
+                                data-en="See Details" 
+                                data-hi="विवरण देखें" 
+                                data-mr="तपशील पहा">See Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Haldi & Wedding Section -->
+        <section id="haldi-wedding" class="ceremonies fade-in">
+            <div class="ceremonies-container">
+                <!-- Haldi Ceremony -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image3.webp');">
+                        <div class="text-content">
+                            <h3 data-en="Haldi Ceremony" 
+                                data-hi="हल्दी समारोह" 
+                                data-mr="हळदी समारंभ">Haldi Ceremony</h3>
+                            <p class="event-date" data-en="April 10, 2025" 
+                               data-hi="10 अप्रैल 2025" 
+                               data-mr="10 एप्रिल 2025">April 10, 2025</p>
+                            <p class="event-time" data-en="4:00 PM" 
+                               data-hi="शाम 4:00 बजे" 
+                               data-mr="संध्याकाळी 4:00 वाजता">4:00 PM</p>
+                            <p class="event-location" data-en="Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee" 
+                               data-hi="प्लॉट नंबर 97, कुम्भारे कॉलोनी, सम्राट नगर, कैंपटी" 
+                               data-mr="प्लॉट क्र. 97, कुम्भारे कॉलनी, सम्राट नगर, कांपटी">Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee</p>
+                            <div class="ceremony-buttons">
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Haldi',
+                                           start: '2025-04-10T16:00:00+05:30',
+                                           end: '2025-04-10T18:00:00+05:30',
+                                           location: 'Plot No. 97, Kumbhare Colony, Samrat Nagar, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-haldi.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
+                                    </a>
+                                </div>
+                                <a href="https://maps.app.goo.gl/nWDCHBsZvt8u9abR7" 
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding Ceremony -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image9.webp');">
+                        <div class="text-content">
+                            <h3 data-en="Wedding Ceremony" 
+                                data-hi="विवाह समारोह" 
+                                data-mr="विवाह समारंभ">Wedding Ceremony</h3>
+                            <p class="event-date" data-en="April 11, 2025" 
+                               data-hi="11 अप्रैल 2025" 
+                               data-mr="11 एप्रिल 2025">April 11, 2025</p>
+                            <p class="event-time" data-en="7:00 PM onwards" 
+                               data-hi="शाम 7:00 बजे से आगे" 
+                               data-mr="संध्याकाळी 7:00 वाजता पासून">7:00 PM onwards</p>
+                            <p class="event-location" data-en="Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar" 
+                               data-hi="प्रकाश खरोले का घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर" 
+                               data-mr="प्रकाश खरोले यांचे घर, डोंगरी माइंस, डोंगरी बुजुर्ग, तह. तुमसर">Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar</p>
+                            <div class="ceremony-buttons">
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Wedding',
+                                           start: '2025-04-11T19:00:00+05:30',
+                                           end: '2025-04-11T23:00:00+05:30',
+                                           location: 'Home of Prakash Kharole, Dongri Mines, Dongri Bujurg, Teh. Tumsar',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-wedding.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
+                                    </a>
+                                </div>
+                                <a href="https://maps.app.goo.gl/HX5QMM6VnNmUwX9H9"
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reception & Inviters Section -->
+        <section id="reception-inviters" class="ceremonies fade-in">
+            <div class="ceremonies-container">
+                <!-- Reception -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image5.webp');">
+                        <div class="text-content">
+                            <h3 data-en="Reception" 
+                                data-hi="स्वागत समारोह" 
+                                data-mr="स्वागत समारंभ">Reception</h3>
+                            <p class="event-date" data-en="April 12, 2025" 
+                               data-hi="12 अप्रैल 2025" 
+                               data-mr="12 एप्रिल 2025">April 12, 2025</p>
+                            <p class="event-time" data-en="7:00 PM onwards" 
+                               data-hi="शाम 7:00 बजे से आगे" 
+                               data-mr="संध्याकाळी 7:00 वाजता पासून">7:00 PM onwards</p>
+                            <p class="event-location" data-en="Balaji Lawn, Ranala Road, Kalmana Road, Kamptee" 
+                               data-hi="बालाजी लॉन, रानाला रोड, कलमना रोड, कैंपटी" 
+                               data-mr="बालाजी लॉन, रानाला रोड, कलमना रोड, कांपटी">Balaji Lawn, Ranala Road, Kalmana Road, Kamptee</p>
+                            <div class="ceremony-buttons">
+                                <button class="calendar-toggle-btn" 
+                                        data-en="Add to Calendar" 
+                                        data-hi="कैलेंडर में जोड़ें" 
+                                        data-mr="कॅलेंडरमध्ये जोडा">Add to Calendar</button>
+                                <div class="calendar-options" style="display: none;">
+                                    <a href="#" 
+                                       class="calendar-btn google-btn" 
+                                       onclick="this.href=generateGoogleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       target="_blank"
+                                       aria-label="Add to Google Calendar"
+                                       data-en="Google Calendar" 
+                                       data-hi="गूगल कैलेंडर" 
+                                       data-mr="गूगल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo" class="calendar-logo">
+                                        <span>Google Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn apple-btn" 
+                                       onclick="this.href=generateAppleCalendarLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-reception.ics"
+                                       target="_blank"
+                                       aria-label="Add to Apple Calendar"
+                                       data-en="Apple Calendar" 
+                                       data-hi="एप्पल कैलेंडर" 
+                                       data-mr="एप्पल कॅलेंडर">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_Calendar_%28iOS%29.svg" alt="Apple Calendar Logo" class="calendar-logo">
+                                        <span>Apple Calendar</span>
+                                    </a>
+                                    <a href="#" 
+                                       class="calendar-btn ics-btn" 
+                                       onclick="this.href=generateICSFileLink({
+                                           title: 'Vishal & Bharati\'s Reception',
+                                           start: '2025-04-12T19:00:00+05:30',
+                                           end: '2025-04-12T23:00:00+05:30',
+                                           location: 'Balaji Lawn, Ranala Road, Kalmana Road, Kamptee',
+                                           timezone: 'Asia/Kolkata'
+                                       })"
+                                       download="vishal-bharati-reception.ics"
+                                       target="_blank"
+                                       aria-label="Download ICS File"
+                                       data-en="Save Event File" 
+                                       data-hi="इवेंट फ़ाइल सहेजें" 
+                                       data-mr="इव्हेंट फाइल जतन करा">
+                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <span>Save Event File</span>
+                                    </a>
+                                </div>
+                                <a href="https://maps.google.com/?q=Balaji+Lawn,+Ranala+Road,+Kalmana+Road,+Kamptee" 
+                                   target="_blank" 
+                                   class="location-btn" 
+                                   data-en="Check on map" 
+                                   data-hi="नक्शे पर देखें" 
+                                   data-mr="नकाशावर पहा">
+                                    <svg class="gps-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>Check on map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inviters -->
+                <div class="ceremony-item">
+                    <div class="image-container" style="background-image: url('image6.webp');">
+                        <div class="text-content">
+                            <h3 data-en="Invited By" 
+                                data-hi="द्वारा आमंत्रित" 
+                                data-mr="आमंत्रित केले">Invited By</h3>
+                            <div class="inviters-list">
+                                <p data-en="Smt. Sunita G Barve" 
+                                   data-hi="श्रीमती सुनीता जी बर्वे" 
+                                   data-mr="श्रीमती सुनीता जी बर्वे">Smt. Sunita G Barve</p>
+                                <p data-en="Shri Prakash S Barve" 
+                                   data-hi="श्री प्रकाश एस बर्वे" 
+                                   data-mr="श्री प्रकाश एस बर्वे">Shri Prakash S Barve</p>
+                                <p data-en="Smt. Savita Prakash Barve" 
+                                   data-hi="श्रीमती सविता प्रकाश बर्वे" 
+                                   data-mr="श्रीमती सविता प्रकाश बर्वे">Smt. Savita Prakash Barve</p>
+                                <p data-en="Shri. Vipin G Barve" 
+                                   data-hi="श्री विपिन जी बर्वे" 
+                                   data-mr="श्री विपिन जी बर्वे">Shri. Vipin G Barve</p>
+                                <p data-en="Avinash P Barve" 
+                                   data-hi="अविनाश पी बर्वे" 
+                                   data-mr="अविनाश पी बर्वे">Avinash P Barve</p>
+                                <p data-en="Abhishek P Barve" 
+                                   data-hi="अभिषेक पी बर्वे"
+                                   data-mr="अभिषेक पी बर्वे">Abhishek P Barve</p>
+                                <p data-en="and all Barve family" 
+                                   data-hi="और समस्त बर्वे परिवार" 
+                                   data-mr="आणि सर्व बर्वे कुटुंब">and all Barve family</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+    <script src="/script.js"></script>
   </body>
 </html>
