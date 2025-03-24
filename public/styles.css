@@ -518,12 +518,3 @@ body {
 .ics-btn:hover {
     background-color: #e0e0e0;
 }
-.lang-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    display: flex; /* Use Flexbox to align buttons in a row */
-    align-items: center;
-    gap: 5px; /* Add spacing between buttons */
-}

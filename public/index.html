@@ -22,6 +22,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Add meta tags to improve trust and SEO -->
+    <meta name="description" content="Join Vishal and Bharati for their wedding celebration on April 10-12, 2025. View event details, add to your calendar, and check the location.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Vishal & Bharati">
   </head>
   <body>
     <!-- Petal Falling Canvas -->
@@ -51,7 +56,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero fade-in">
             <div class="card">
-                <div class="image-container" style="background-image: url('hero-section-bg.jpeg');">
+                <div class="image-container" style="background-image: url('/hero-section-bg.jpeg');">
                     <div class="text-content">
                         <p class="initials" data-en="VB" 
                            data-hi="VB" 
@@ -88,7 +93,7 @@
             <div class="ceremonies-container">
                 <!-- Haldi Ceremony -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image3.webp');">
+                    <div class="image-container" style="background-image: url('/image3.webp');">
                         <div class="text-content">
                             <h3 data-en="Haldi Ceremony" 
                                 data-hi="हल्दी समारोह" 
@@ -157,7 +162,7 @@
                                        data-en="Save Event File" 
                                        data-hi="इवेंट फ़ाइल सहेजें" 
                                        data-mr="इव्हेंट फाइल जतन करा">
-                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <img src="/save-event.svg" alt="Calendar Icon" class="calendar-logo">
                                         <span>Save Event File</span>
                                     </a>
                                 </div>
@@ -180,7 +185,7 @@
 
                 <!-- Wedding Ceremony -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('wedding-bg.jpeg');">
+                    <div class="image-container" style="background-image: url('/wedding-bg.jpeg');">
                         <div class="text-content">
                             <h3 data-en="Wedding Ceremony" 
                                 data-hi="विवाह समारोह" 
@@ -249,7 +254,7 @@
                                        data-en="Save Event File" 
                                        data-hi="इवेंट फ़ाइल सहेजें" 
                                        data-mr="इव्हेंट फाइल जतन करा">
-                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <img src="/save-event.svg" alt="Calendar Icon" class="calendar-logo">
                                         <span>Save Event File</span>
                                     </a>
                                 </div>
@@ -277,7 +282,7 @@
             <div class="ceremonies-container">
                 <!-- Reception -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image5.webp');">
+                    <div class="image-container" style="background-image: url('/image5.webp');">
                         <div class="text-content">
                             <h3 data-en="Reception" 
                                 data-hi="स्वागत समारोह" 
@@ -323,7 +328,6 @@
                                            location: 'Balaji Lawn, Ranala Road, Kalamna Road, Kamptee',
                                            timezone: 'Asia/Kolkata'
                                        })"
-                                       download="vishal-bharati-reception.ics"
                                        target="_blank"
                                        aria-label="Add to Apple Calendar"
                                        data-en="Apple Calendar" 
@@ -347,7 +351,7 @@
                                        data-en="Save Event File" 
                                        data-hi="इवेंट फ़ाइल सहेजें" 
                                        data-mr="इव्हेंट फाइल जतन करा">
-                                        <img src="save-event.svg" alt="Calendar Icon" class="calendar-logo">
+                                        <img src="/save-event.svg" alt="Calendar Icon" class="calendar-logo">
                                         <span>Save Event File</span>
                                     </a>
                                 </div>
@@ -370,7 +374,7 @@
 
                 <!-- Inviters -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image6.webp');">
+                    <div class="image-container" style="background-image: url('/image6.webp');">
                         <div class="text-content">
                             <h3 data-en="Invited By" 
                                 data-hi="आमंत्रणकर्ता" 
@@ -404,15 +408,12 @@
             </div>
         </section>
     </div>
+
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
       // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       const firebaseConfig = {
         apiKey: "AIzaSyAVFLMDeLtH_okHrYiGzEYSTXSFSzhFnUs",
         authDomain: "vishal-wedding-invitation.firebaseapp.com",
@@ -428,16 +429,5 @@
       const analytics = getAnalytics(app);
     </script>
     <script src="script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-      function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-      }
-    </script>
-    <button class="g-recaptcha" 
-        data-sitekey="6LcsyP4qAAAAAP-dtkGMAz3PgPt_GX7gPXPHQTPj" 
-        data-callback='onSubmit' 
-        data-action='submit'>Submit</button>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'925714f4ffe632e9',t:'MTc0MjgyODg4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
   </body>
 </html>

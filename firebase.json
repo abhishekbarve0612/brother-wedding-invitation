@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "public", // Adjust this to match your public directory (e.g., "build" or "public")
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -19,6 +19,22 @@
           {
             "key": "Strict-Transport-Security",
             "value": "max-age=31536000; includeSubDomains"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' https://www.gstatic.com https://www.google.com; img-src 'self' https://upload.wikimedia.org; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com;"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
           }
         ]
       }
