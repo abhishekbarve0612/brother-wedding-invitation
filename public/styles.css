@@ -1,4 +1,6 @@
 /* styles.css */
+
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -36,6 +38,9 @@ body {
     top: 10px;
     right: 10px;
     z-index: 10;
+    display: flex; /* Use Flexbox to align buttons in a row */
+    align-items: center;
+    gap: 5px; /* Add spacing between buttons */
 }
 
 .lang-btn {
@@ -46,12 +51,35 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 5px;
 }
 
 .lang-btn.active {
     background: #f7c948;
     color: #333;
+}
+
+/* Music Toggle Button */
+.music-btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background: #6b4e31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-btn:hover {
+    background: #f7c948;
+    color: #333;
+}
+
+/* Hide the audio element */
+#background-music {
+    display: none;
 }
 
 /* Card Styling (Image on Card) */
@@ -472,6 +500,7 @@ body {
     height: 20px;
     margin-right: 8px;
 }
+
 .ics-btn {
     display: flex;
     align-items: center;
@@ -488,4 +517,13 @@ body {
 
 .ics-btn:hover {
     background-color: #e0e0e0;
+}
+.lang-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex; /* Use Flexbox to align buttons in a row */
+    align-items: center;
+    gap: 5px; /* Add spacing between buttons */
 }

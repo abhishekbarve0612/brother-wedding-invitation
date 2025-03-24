@@ -4,24 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- update the version number as needed -->
+    <!-- Firebase SDK Scripts -->
     <script defer src="/__/firebase/11.5.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/11.5.0/firebase-storage-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-remote-config-compat.js"></script>
     <script defer src="/__/firebase/11.5.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal & Bharati's Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Devanagari&family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,35 +24,47 @@
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
-    
     <!-- Petal Falling Canvas -->
     <canvas id="petals"></canvas>
 
     <div class="container">
-        <!-- Language Toggle -->
+        <!-- Language Toggle and Music Control -->
         <div class="lang-toggle">
+          <!-- Music Control Button -->
+          <button id="music-toggle" class="music-btn" title="Toggle Music">
+              <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+          </button>
             <button id="lang-en" class="lang-btn active">English</button>
             <button id="lang-hi" class="lang-btn">हिन्दी</button>
             <button id="lang-mr" class="lang-btn">मराठी</button>
         </div>
 
+        <!-- Audio Element (Hidden) -->
+        <audio id="background-music" loop>
+            <!-- Source will be set dynamically in JavaScript -->
+        </audio>
+
         <!-- Hero Section -->
         <section id="hero" class="hero fade-in">
             <div class="card">
-                <div class="image-container" style="background-image: url('image0.webp');">
+                <div class="image-container" style="background-image: url('hero-section-bg.jpeg');">
                     <div class="text-content">
                         <p class="initials" data-en="VB" 
                            data-hi="VB" 
                            data-mr="VB">VB</p>
                         <p class="save-the-date" data-en="Save The Date" 
-                           data-hi="तारीख सेव करें" 
-                           data-mr="तारीख जतन करा">Save The Date</p>
-                        <p class="invitation" data-en="You are Cordially invited to attend this" 
-                           data-hi="आपको इस शुभ अवसर पर सादर आमंत्रित किया जाता है" 
-                           data-mr="आपणास या शुभ प्रसंगी उपस्थित राहण्याचे हार्दिक निमंत्रण आहे">You are Cordially invited to attend this</p>
-                        <p class="occasion" data-en="Auspicious Occasion of Wedding" 
+                           data-hi="तारीख सुरक्षित रखें" 
+                           data-mr="तारीख लक्षात ठेवा">Save The Date</p>
+                        <p class="invitation" data-en="You are cordially invited to attend this" 
+                           data-hi="आप सादर आमंत्रित हैं" 
+                           data-mr="आपणास या शुभ प्रसंगी उपस्थित राहण्याचे हार्दिक निमंत्रण आहे">You are cordially invited to attend this</p>
+                        <p class="occasion" data-en="Auspicious Wedding of" 
                            data-hi="विवाह के शुभ अवसर पर" 
-                           data-mr="विवाहाच्या शुभ प्रसंगी">Auspicious Occasion of Wedding</p>
+                           data-mr="या विवाहाच्या शुभ प्रसंगी">auspicious wedding of</p>
                         <h1 class="groom-name" data-en="Vishal" 
                            data-hi="विशाल" 
                            data-mr="विशाल">Vishal</h1>
@@ -81,7 +88,7 @@
             <div class="ceremonies-container">
                 <!-- Haldi Ceremony -->
                 <div class="ceremony-item">
-                    <div class="image-container" style="background-image: url('image3.webp');">
+                    <div class="image-container" style="background-image: url('wedding-bg.jpeg');">
                         <div class="text-content">
                             <h3 data-en="Haldi Ceremony" 
                                 data-hi="हल्दी समारोह" 
@@ -366,8 +373,8 @@
                     <div class="image-container" style="background-image: url('image6.webp');">
                         <div class="text-content">
                             <h3 data-en="Invited By" 
-                                data-hi="द्वारा आमंत्रित" 
-                                data-mr="आमंत्रित केले">Invited By</h3>
+                                data-hi="आमंत्रणकर्ता" 
+                                data-mr="कुटुंबीयांकडून आमंत्रण">Invited By</h3>
                             <div class="inviters-list">
                                 <p data-en="Smt. Sunita G Barve" 
                                    data-hi="श्रीमती सुनीता जी बर्वे" 
@@ -397,6 +404,7 @@
             </div>
         </section>
     </div>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'925714f4ffe632e9',t:'MTc0MjgyODg4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
   </body>
 </html>

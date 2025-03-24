@@ -256,3 +256,81 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// Background Music
+const musicTracks = [
+    'music1.mp3',
+    'music2.mp3',
+    'music3.mp3',
+    'music4.mp3',
+    'music5.mp3',
+    'music6.mp3',
+];
+
+// Select a random track
+const randomTrack = musicTracks[Math.floor(Math.random() * musicTracks.length)];
+const audio = document.getElementById('background-music');
+const musicToggleBtn = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
+const scrollBtn = document.querySelector('.scroll-btn'); // The "See Details" button
+
+// Set the source of the audio element
+audio.src = randomTrack;
+audio.volume = 0.3; // Set a lower volume to avoid being too intrusive
+
+// Function to update the music toggle button's icon and title
+function updateMusicButtonState(isPlaying) {
+    if (isPlaying) {
+        // Show "mute" icon (muted speaker) when music is playing
+        musicIcon.innerHTML = `
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path d="M15 9l6 6m-6 0l6-6"></path>
+        `;
+        musicToggleBtn.title = 'Mute Music';
+    } else {
+        // Show "music on" icon (speaker) when music is not playing
+        musicIcon.innerHTML = `
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        `;
+        musicToggleBtn.title = 'Play Music';
+    }
+}
+
+// Function to toggle music play/pause
+function toggleMusic() {
+    if (audio.paused) {
+        audio.play().then(() => {
+            updateMusicButtonState(true);
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+            updateMusicButtonState(false);
+        });
+    } else {
+        audio.pause();
+        updateMusicButtonState(false);
+    }
+}
+
+// Initialize the button state (music is not playing initially)
+updateMusicButtonState(false);
+
+// Start music when the "See Details" button is clicked, if not already playing
+scrollBtn.addEventListener('click', () => {
+    // Scroll to the section (existing behavior)
+    scrollToSection('haldi-wedding');
+
+    // Start the music if it's not already playing
+    if (audio.paused) {
+        audio.play().then(() => {
+            updateMusicButtonState(true);
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+            updateMusicButtonState(false);
+        });
+    }
+});
+
+// Add event listener for the music toggle button
+musicToggleBtn.addEventListener('click', toggleMusic);
