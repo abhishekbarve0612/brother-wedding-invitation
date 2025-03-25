@@ -9,8 +9,8 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
-    color: #333;
+    background: linear-gradient(to bottom, #FFFFFF, #F2EFFF); /* Soft White to Pale Lavender */
+    color: #4A5A6B; /* Deep Slate Blue */
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
@@ -38,32 +38,32 @@ body {
     top: 10px;
     right: 10px;
     z-index: 10;
-    display: flex; /* Use Flexbox to align buttons in a row */
+    display: flex;
     align-items: center;
-    gap: 5px; /* Add spacing between buttons */
+    gap: 5px;
 }
 
 .lang-btn {
     padding: 5px 10px;
     font-size: 0.9rem;
-    background: #6b4e31;
-    color: #fff;
+    background: #4A5A6B; /* Deep Slate Blue */
+    color: #FFFFFF; /* White */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .lang-btn.active {
-    background: #f7c948;
-    color: #333;
+    background: #D8C7A2; /* Champagne Gold */
+    color: #4A5A6B; /* Deep Slate Blue */
 }
 
 /* Music Toggle Button */
 .music-btn {
     padding: 5px 10px;
     font-size: 0.9rem;
-    background: #6b4e31;
-    color: #fff;
+    background: #4A5A6B; /* Deep Slate Blue */
+    color: #FFFFFF; /* White */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -73,8 +73,8 @@ body {
 }
 
 .music-btn:hover {
-    background: #f7c948;
-    color: #333;
+    background: #D8C7A2; /* Champagne Gold */
+    color: #4A5A6B; /* Deep Slate Blue */
 }
 
 /* Hide the audio element */
@@ -84,8 +84,8 @@ body {
 
 /* Card Styling (Image on Card) */
 .card {
-    background: #fff;
-    border: 1px solid #f7c948;
+    background: #FFFFFF; /* Soft White */
+    border: 1px solid #D8C7A2; /* Champagne Gold */
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -101,7 +101,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
+    background: linear-gradient(to bottom, #FFFFFF, #F2EFFF); /* Soft White to Pale Lavender */
     padding: 20px;
 }
 
@@ -115,11 +115,9 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: #fff;
 }
 
 .hero .text-content {
-    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
     max-width: 80%;
@@ -129,12 +127,36 @@ body {
     top: 5%;
 }
 
+/* Text Content Container for Positioning (Ceremony Sections) */
+.text-content {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+/* Text styles within .text-content */
+.hero .text-content p,
+.hero .text-content h1,
+.hero .text-content span,
+.ceremony-item .text-content h3,
+.ceremony-item .text-content p {
+    color: #4A5A6B; /* Deep Slate Blue */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for contrast */
+}
+
 .hero .initials {
     font-family: 'Great Vibes', cursive;
     font-size: 3rem;
     font-weight: 400;
     margin-bottom: 10px;
-    color: #f7c948;
 }
 
 .hero .save-the-date {
@@ -168,30 +190,30 @@ body {
 .hero .ampersand-hero {
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
-    color: #f7c948;
+    color: #D6D0E8; /* Muted Lavender */
 }
 
 .scroll-btn {
     padding: 10px 20px;
     font-size: 1rem;
-    background: #f7c948;
-    border: 1px solid #e0e0e0;
+    background: #E8B4B8; /* Champagne Gold */
+    border: 1px solid #4A5A6B; /* Deep Slate Blue */
     border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+    color: #4A5A6B; /* Deep Slate Blue */
     margin-top: 20px;
 }
 
 .scroll-btn:hover {
-    background: #6b4e31;
-    color: #fff;
+    background: #C1B28A; /* Darker Champagne Gold */
+    color: #FFFFFF; /* White */
 }
 
 /* Ceremonies Section */
 .ceremonies {
     padding: 40px 20px;
-    background: linear-gradient(to bottom, #fff5f5, #ffe4e1);
+    background: linear-gradient(to bottom, #FFFFFF, #F2EFFF); /* Soft White to Pale Lavender */
 }
 
 .ceremonies-container {
@@ -210,10 +232,10 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    border: 1px solid #f7c948;
+    border: 1px solid #D8C7A2; /* Champagne Gold */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    background: #fff;
+    background: #FFFFFF; /* Soft White */
 }
 
 .ceremony-item .image-container {
@@ -225,32 +247,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
     text-align: center;
     position: relative;
     border-radius: 15px;
 }
 
-/* Text Content Container for Positioning */
-.text-content {
-    position: absolute;
-    top: 20%;
-    bottom: 20%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-}
-
 .ceremony-item h3 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.2rem;
-    color: #f7c948;
+    color: #D6D0E8; /* Muted Lavender */
     margin-bottom: 10px;
 }
 
@@ -292,21 +297,21 @@ body {
     margin-top: 10px;
 }
 
-/* Calendar Toggle Button */
+/* Calendar Toggle Button ("See Details") */
 .calendar-toggle-btn {
     padding: 8px 16px;
     font-size: 0.9rem;
-    background: #f7c948;
-    color: #333;
-    border: none;
+    background: #E8B4B8; /* Updated: Soft Rose */
+    color: #4A5A6B; /* Deep Slate Blue */
+    border: 1px solid #D69A9E; /* Darker Soft Rose border */
     border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .calendar-toggle-btn:hover {
-    background: #6b4e31;
-    color: #fff;
+    background: #D69A9E; /* Updated: Darker Soft Rose on hover */
+    color: #FFFFFF; /* White on hover */
 }
 
 /* Calendar Options Container */
@@ -315,22 +320,25 @@ body {
     flex-direction: column;
     gap: 8px;
     margin-top: 8px;
-    background: #fff;
+    background: #FFFFFF; /* Soft White */
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Calendar Buttons */
+/* Calendar Buttons ("Add to Calendar") */
 .calendar-btn {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
     font-size: 0.9rem;
+    background: #6B4E31; /* Updated: Original Brown */
+    border: 1px solid #6B4E31; /* Original Brown */
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    color: #FFFFFF; /* White */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .calendar-btn .calendar-logo {
@@ -340,28 +348,27 @@ body {
 
 /* Google Calendar Button */
 .calendar-btn.google-btn {
-    background: #ffffff;
-    color: #1a73e8;
-    border: 1px solid #dadce0;
+    background: #6B4E31; /* Original Brown */
+    border: 1px solid #6B4E31; /* Original Brown */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .calendar-btn.google-btn:hover {
-    background: #f1f3f4;
+    background: #543E26; /* Darker Brown */
 }
 
 /* Apple Calendar Button */
 .calendar-btn.apple-btn {
-    background: #ffffff;
-    color: #000000;
-    border: 1px solid #d2d2d2;
+    background: #6B4E31; /* Original Brown */
+    border: 1px solid #6B4E31; /* Original Brown */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .calendar-btn.apple-btn:hover {
-    background: #f5f5f5;
+    background: #543E26; /* Darker Brown */
 }
 
+/* Check on Map Button */
 .location-btn {
     display: flex;
     align-items: center;
@@ -369,16 +376,25 @@ body {
     gap: 5px;
     padding: 8px 16px;
     font-size: 0.9rem;
-    background: #6b4e31;
-    color: #fff;
+    background: #6B4E31; /* Updated: Original Brown */
+    color: #C0392B; /* Soft Red (for SVG stroke) */
     border-radius: 25px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .location-btn:hover {
-    background: #f7c948;
-    color: #333;
+    background: #543E26; /* Darker Brown */
+    color: #C0392B; /* Soft Red (for SVG stroke) */
+}
+
+.location-btn .location-btn-text {
+    color: #FFFFFF; /* White (for text) */
+    transition: color 0.3s ease;
+}
+
+.location-btn:hover .location-btn-text {
+    color: #E0E0E0; /* Light Gray on hover */
 }
 
 .location-btn .gps-icon {
@@ -476,30 +492,25 @@ body {
     .calendar-btn {
         width: 100%;
     }
-    
 }
-
-    .text-content, .hero .text-content {
-        color: black;
-        background: unset;
-    }
 
 .calendar-btn {
     display: flex;
     align-items: center;
     padding: 8px 12px;
     margin: 5px 0;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
+    background-color: #6B4E31; /* Updated: Original Brown */
+    border: 1px solid #6B4E31; /* Original Brown */
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: #FFFFFF; /* White */
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .calendar-btn:hover {
-    background-color: #e0e0e0;
+    background-color: #543E26; /* Darker Brown */
+    color: #E0E0E0; /* Light Gray on hover */
 }
 
 .calendar-logo {
@@ -513,21 +524,16 @@ body {
     align-items: center;
     padding: 8px 12px;
     margin: 5px 0;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
+    background-color: #6B4E31; /* Updated: Original Brown */
+    border: 1px solid #6B4E31; /* Original Brown */
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: #FFFFFF; /* White */
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .ics-btn:hover {
-    background-color: #e0e0e0;
-}
-
-
-.text-content, .hero .text-content {
-    color: black !important;
-    background: unset !important;
+    background-color: #543E26; /* Darker Brown */
+    color: #E0E0E0; /* Light Gray on hover */
 }
