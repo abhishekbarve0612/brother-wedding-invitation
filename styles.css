@@ -460,6 +460,12 @@ body {
     }
 }
 
+
+.text-content, .hero .text-content {
+    color: black;
+    background: unset;
+}
+
 @media (max-width: 767px) {
     .ceremony-item {
         width: 100%;
@@ -474,11 +480,6 @@ body {
     }
     .calendar-btn {
         width: 100%;
-    }
-
-    .text-content, .hero .text-content {
-        color: black;
-        background: unset;
     }
 
 }
