@@ -525,3 +525,9 @@ body {
 .ics-btn:hover {
     background-color: #e0e0e0;
 }
+
+
+.text-content, .hero .text-content {
+    color: black;
+    background: unset;
+}
